@@ -10,7 +10,7 @@ export default defineConfig({
   base: '/',
   cleanUrls: true,
   lastUpdated: true,
-  srcExclude: ['README.md'],
+  srcExclude: ['README.md', 'AGENTS.md'],
   sitemap: {
     hostname: 'https://diffpal.github.io'
   },
