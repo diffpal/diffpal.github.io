@@ -5,6 +5,9 @@ hero:
   name: DiffPal
   text: Open-source AI PR review you control.
   tagline: Bring your own agent. Keep one PR review workflow.
+  image:
+    src: /logo.png
+    alt: DiffPal logo
   actions:
     - theme: brand
       text: Get started

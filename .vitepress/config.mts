@@ -15,7 +15,7 @@ export default defineConfig({
     hostname: 'https://diffpal.github.io'
   },
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/logo-mark.png' }],
     ['meta', { name: 'theme-color', content: '#2563eb' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: siteTitle }],
@@ -26,7 +26,7 @@ export default defineConfig({
     ['meta', { name: 'twitter:description', content: siteDescription }]
   ],
   themeConfig: {
-    logo: '/favicon.svg',
+    logo: '/logo-mark.png',
     search: {
       provider: 'local'
     },
