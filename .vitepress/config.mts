@@ -5,6 +5,7 @@ const siteDescription = 'Open-source AI PR review you control.'
 const mainRepo = 'https://github.com/diffpal/diffpal'
 const examplesBase = `${mainRepo}/tree/main/examples`
 const changelog = `${mainRepo}/blob/main/CHANGELOG.md`
+const googleAnalyticsId = 'G-B8G6D7K9SQ'
 
 export default defineConfig({
   lang: 'en-US',
@@ -19,6 +20,21 @@ export default defineConfig({
   },
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/logo-mark.png' }],
+    [
+      'script',
+      {
+        async: '',
+        src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`
+      }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${googleAnalyticsId}');`
+    ],
     ['meta', { name: 'theme-color', content: '#2563eb' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: siteTitle }],
