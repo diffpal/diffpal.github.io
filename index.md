@@ -4,7 +4,7 @@ layout: home
 hero:
   name: DiffPal
   text: Open-source AI PR review you control.
-  tagline: Bring your own agent. Keep one PR review workflow.
+  tagline: Bring your own agent. Run it in your CI. Publish consistent findings, summaries, and merge gates.
   image:
     src: /logo.png
     alt: DiffPal logo
@@ -13,37 +13,67 @@ hero:
       text: Get started
       link: /quickstart
     - theme: alt
+      text: Read the docs
+      link: /ci-examples
+    - theme: alt
       text: View on GitHub
       link: https://github.com/diffpal/diffpal
-
-features:
-  - title: Structured findings
-    details: Review output is normalized into a canonical findings bundle.
-  - title: PR summaries and inline feedback
-    details: Publish summaries and actionable file-level comments where the host supports them.
-  - title: Machine-readable artifacts
-    details: Write JSON, SARIF, Code Quality, and platform-specific publish plans for CI auditing.
-  - title: Merge gates
-    details: Fail CI only when configured blocking findings are present or setup and publishing fail.
-  - title: Provider choice
-    details: Use Codex ACP, another ACP-compatible CLI, hosted providers, or a provider pool.
-  - title: GitHub, GitLab, and Azure DevOps support
-    details: Keep one review workflow across the major PR and merge request hosts.
 ---
+
+## Outcome Preview
+
+After a successful review, DiffPal publishes the same core outputs across supported hosts:
+
+| Output | What users see |
+| --- | --- |
+| Review summary | A PR or MR summary with the review result and notable changes. |
+| Inline finding | File-level feedback on changed lines when actionable issues exist. |
+| Status or gate | A check, commit status, PR status, or CI result tied to the configured gate. |
+| Findings artifact | A machine-readable findings bundle written in the workflow workspace. |
 
 ## How It Works
 
-1. Commit `.config/diffpal/config.yaml` with the provider and review policy you want.
-2. Install and authenticate your selected review provider in CI.
-3. Run DiffPal against the pull request base and head commits.
-4. Publish a summary, inline findings, machine-readable artifacts, and an optional merge gate.
+1. Collect the PR or merge request diff.
+2. Invoke the configured provider or ACP-compatible agent.
+3. Validate structured findings against the changed code.
+4. Publish feedback and apply the configured gate.
 
-## Quickstart
+## Why Teams Use DiffPal
 
-```bash
-npx -y @diffpal/diffpal@latest init --wizard --setup codex-api-key --platform github
-```
+- **Provider choice:** use Codex, Copilot, OpenCode, a hosted provider, or another ACP-compatible agent.
+- **CI-native operation:** run reviews inside the workflow environment your team already controls.
+- **Repository-owned policy:** keep review configuration, instructions, artifacts, and gates with the codebase.
+- **Consistent output:** publish summaries, findings, artifacts, and statuses across supported hosts.
+- **Machine-readable artifacts:** keep review output available for auditing, reporting, and downstream tooling.
 
-This creates `.config/diffpal/config.yaml` for the Codex API-key recipe, including the selected provider, review checks, `profiles.ci`, and a GitHub platform block.
+## Integrations
 
-Continue with the [quickstart](/quickstart) for the required secret, workflow, and first same-repository pull request.
+### Code Hosts And CI Publishers
+
+DiffPal publishes review feedback through the CI and code review systems your repository uses:
+
+- GitHub Actions
+- GitLab CI
+- Azure Pipelines
+
+### AI Providers And ACP-Compatible Agents
+
+CI installs and authenticates the provider you choose, while DiffPal keeps the review workflow and output contract consistent:
+
+- Codex
+- Copilot
+- OpenCode
+- hosted providers configured in DiffPal
+- any CLI that starts an ACP stdio server
+
+## Security And Control
+
+DiffPal runs in your CI or workflow environment. Your repository supplies the platform token used to publish feedback and the provider credentials used by the selected review agent.
+
+DiffPal sends review requests to the provider you configure. Depending on that provider and agent setup, pull request diffs or source code may be sent to that provider. Choose provider credentials, fork-pull-request rules, and CI permissions according to your repository's trust model.
+
+## Start Reviewing
+
+- [Start with GitHub Actions](/quickstart)
+- [Use another CI/CD system](/ci-examples)
+- [Bring your own agent](/ci-examples#using-another-acp-cli)
