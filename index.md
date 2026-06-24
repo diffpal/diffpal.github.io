@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: Get started
-      link: /quickstart
+      link: https://github.com/diffpal/diffpal/blob/main/docs/getting-started/github-quickstart.md
     - theme: alt
       text: Read the docs
-      link: /ci-examples
+      link: /docs
     - theme: alt
       text: View on GitHub
       link: https://github.com/diffpal/diffpal
@@ -74,6 +74,6 @@ DiffPal sends review requests to the provider you configure. Depending on that p
 
 ## Start Reviewing
 
-- [Start with GitHub Actions](/quickstart)
-- [Use another CI/CD system](/ci-examples)
-- [Bring your own agent](/ci-examples#using-another-acp-cli)
+- [Start with GitHub Actions](https://github.com/diffpal/diffpal/blob/main/docs/getting-started/github-quickstart.md)
+- [Use another CI/CD system](https://github.com/diffpal/diffpal/blob/main/docs/integrations/README.md#common-setup)
+- [Bring your own agent](https://github.com/diffpal/diffpal/blob/main/docs/integrations/README.md#using-another-acp-cli)

@@ -2,6 +2,10 @@ import { defineConfig } from 'vitepress'
 
 const siteTitle = 'DiffPal'
 const siteDescription = 'Open-source AI PR review you control.'
+const mainRepo = 'https://github.com/diffpal/diffpal'
+const docsBase = `${mainRepo}/blob/main/docs`
+const examplesBase = `${mainRepo}/tree/main/examples`
+const changelog = `${mainRepo}/blob/main/CHANGELOG.md`
 
 export default defineConfig({
   lang: 'en-US',
@@ -35,52 +39,72 @@ export default defineConfig({
       text: 'Edit this page on GitHub'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/diffpal/diffpal' }
+      { icon: 'github', link: mainRepo }
     ],
     nav: [
-      { text: 'Guide', link: '/quickstart' },
-      { text: 'Configuration', link: '/config-reference' },
-      { text: 'Platforms', link: '/platform-gitlab' },
-      { text: 'GitHub', link: 'https://github.com/diffpal/diffpal' }
+      { text: 'Home', link: '/' },
+      { text: 'Docs', link: '/docs' },
+      { text: 'Examples', link: examplesBase },
+      { text: 'Security', link: '/security' },
+      { text: 'Changelog', link: changelog },
+      { text: 'GitHub', link: mainRepo }
     ],
     sidebar: [
       {
-        text: 'Getting Started',
+        text: 'Get started',
         items: [
-          { text: 'Overview', link: '/' },
-          { text: 'Quickstart', link: '/quickstart' },
-          { text: 'What Success Looks Like', link: '/what-success-looks-like' }
-        ]
-      },
-      {
-        text: 'Setup',
-        items: [
-          { text: 'CI Setup', link: '/ci-examples' },
-          { text: 'GitLab', link: '/platform-gitlab' },
-          { text: 'Azure DevOps', link: '/platform-azure' }
-        ]
-      },
-      {
-        text: 'Reference',
-        items: [
-          { text: 'Configuration Reference', link: '/config-reference' },
-          { text: 'Configuration Schema', link: '/config-schema' },
-          { text: 'Findings Schema', link: '/findings-schema' },
-          { text: 'Versions and Artifacts', link: '/version-and-artifacts' }
+          { text: 'GitHub quickstart', link: `${docsBase}/getting-started/github-quickstart.md` },
+          { text: 'Custom CI/CD', link: `${docsBase}/integrations/README.md#common-setup` },
+          { text: 'Bring your own agent', link: `${docsBase}/integrations/README.md#using-another-acp-cli` },
+          { text: 'Configuration reference', link: `${docsBase}/reference/configuration.md` },
+          { text: 'Troubleshooting', link: `${docsBase}/help/troubleshooting.md` }
         ]
       },
       {
         text: 'Concepts',
         items: [
-          { text: 'Product Contract', link: '/product-contract' },
-          { text: 'Comparison', link: '/comparison' }
+          { text: 'How DiffPal works', link: `${docsBase}/concepts/how-diffpal-works.md` },
+          { text: 'Comparison', link: `${docsBase}/concepts/comparison.md` }
         ]
       },
       {
-        text: 'Operations',
+        text: 'Integrations',
         items: [
-          { text: 'Troubleshooting', link: '/troubleshooting' },
-          { text: 'Release Process', link: '/release' }
+          { text: 'GitHub Actions', link: `${docsBase}/integrations/github-actions.md` },
+          { text: 'GitLab CI', link: `${docsBase}/integrations/gitlab-ci.md` },
+          { text: 'Azure Pipelines', link: `${docsBase}/integrations/azure-pipelines.md` }
+        ]
+      },
+      {
+        text: 'Providers',
+        items: [
+          { text: 'Provider recipes', link: `${docsBase}/integrations/README.md#common-setup` },
+          { text: 'Provider model', link: `${docsBase}/reference/configuration.md#provider-model` },
+          { text: 'Generic ACP CLI', link: `${docsBase}/reference/configuration.md#generic-acp-cli` }
+        ]
+      },
+      {
+        text: 'Guides',
+        items: [
+          { text: 'Verify first review', link: `${docsBase}/getting-started/verify-first-review.md` },
+          { text: 'Examples gallery', link: examplesBase }
+        ]
+      },
+      {
+        text: 'Reference',
+        items: [
+          { text: 'Configuration', link: `${docsBase}/reference/configuration.md` },
+          { text: 'Artifacts', link: `${docsBase}/reference/artifacts.md` },
+          { text: 'Findings schema', link: `${docsBase}/reference/findings-schema.md` },
+          { text: 'Support matrix', link: `${docsBase}/reference/support-matrix.md` },
+          { text: 'Versioning', link: `${docsBase}/reference/versioning.md` }
+        ]
+      },
+      {
+        text: 'Help',
+        items: [
+          { text: 'Troubleshooting', link: `${docsBase}/help/troubleshooting.md` },
+          { text: 'Fork pull requests and secrets', link: `${docsBase}/help/troubleshooting.md#fork-pull-requests-and-secrets` }
         ]
       }
     ],
