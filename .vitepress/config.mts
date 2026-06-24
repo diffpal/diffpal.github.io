@@ -3,7 +3,6 @@ import { defineConfig } from 'vitepress'
 const siteTitle = 'DiffPal'
 const siteDescription = 'Open-source AI PR review you control.'
 const mainRepo = 'https://github.com/diffpal/diffpal'
-const docsBase = `${mainRepo}/blob/main/docs`
 const examplesBase = `${mainRepo}/tree/main/examples`
 const changelog = `${mainRepo}/blob/main/CHANGELOG.md`
 
@@ -53,60 +52,71 @@ export default defineConfig({
       {
         text: 'Get started',
         items: [
-          { text: 'GitHub quickstart', link: `${docsBase}/getting-started/github-quickstart.md` },
-          { text: 'Custom CI/CD', link: `${docsBase}/integrations/custom-ci.md` },
-          { text: 'Bring your own agent', link: `${docsBase}/providers/README.md` },
-          { text: 'Configuration reference', link: `${docsBase}/reference/configuration.md` },
-          { text: 'Troubleshooting', link: `${docsBase}/help/troubleshooting.md` }
+          { text: 'GitHub quickstart', link: '/github-quickstart' },
+          { text: 'Custom CI/CD', link: '/custom-ci' },
+          { text: 'Bring your own agent', link: '/providers' },
+          { text: 'Configuration reference', link: '/configuration' },
+          { text: 'Troubleshooting', link: '/troubleshooting' }
         ]
       },
       {
         text: 'Concepts',
         items: [
-          { text: 'How DiffPal works', link: `${docsBase}/concepts/how-diffpal-works.md` },
-          { text: 'Comparison', link: `${docsBase}/concepts/comparison.md` }
+          { text: 'How DiffPal works', link: '/how-diffpal-works' },
+          { text: 'Review lifecycle', link: '/review-lifecycle' },
+          { text: 'Findings, feedback, and gates', link: '/findings-feedback-and-gates' },
+          { text: 'Providers and agents', link: '/providers-and-agents' },
+          { text: 'Comparison', link: '/comparison' },
+          { text: 'Glossary', link: '/glossary' }
         ]
       },
       {
         text: 'Integrations',
         items: [
-          { text: 'GitHub Actions', link: `${docsBase}/integrations/github-actions.md` },
-          { text: 'GitLab CI', link: `${docsBase}/integrations/gitlab-ci.md` },
-          { text: 'Azure Pipelines', link: `${docsBase}/integrations/azure-pipelines.md` },
-          { text: 'Custom CI/CD', link: `${docsBase}/integrations/custom-ci.md` }
+          { text: 'Overview', link: '/integrations' },
+          { text: 'GitHub Actions', link: '/github-actions' },
+          { text: 'GitLab CI', link: '/gitlab-ci' },
+          { text: 'Azure Pipelines', link: '/azure-pipelines' },
+          { text: 'Custom CI/CD', link: '/custom-ci' }
         ]
       },
       {
         text: 'Providers',
         items: [
-          { text: 'Provider recipes', link: `${docsBase}/providers/README.md` },
-          { text: 'Provider model', link: `${docsBase}/concepts/providers-and-agents.md` },
-          { text: 'Generic ACP CLI', link: `${docsBase}/providers/custom-acp.md` }
+          { text: 'Provider recipes', link: '/providers' },
+          { text: 'Provider model', link: '/providers-and-agents' },
+          { text: 'Codex', link: '/codex' },
+          { text: 'Copilot', link: '/copilot' },
+          { text: 'OpenCode', link: '/opencode' },
+          { text: 'Generic ACP CLI', link: '/custom-acp' }
         ]
       },
       {
         text: 'Guides',
         items: [
-          { text: 'Verify first review', link: `${docsBase}/getting-started/verify-first-review.md` },
-          { text: 'Secrets and fork PRs', link: `${docsBase}/guides/secrets-and-fork-prs.md` },
+          { text: 'Verify first review', link: '/verify-first-review' },
+          { text: 'Next steps', link: '/next-steps' },
+          { text: 'Secrets and fork PRs', link: '/secrets-and-fork-prs' },
           { text: 'Examples gallery', link: examplesBase }
         ]
       },
       {
         text: 'Reference',
         items: [
-          { text: 'Configuration', link: `${docsBase}/reference/configuration.md` },
-          { text: 'Artifacts', link: `${docsBase}/reference/artifacts.md` },
-          { text: 'Findings schema', link: `${docsBase}/reference/findings-schema.md` },
-          { text: 'Support matrix', link: `${docsBase}/reference/support-matrix.md` },
-          { text: 'Versioning', link: `${docsBase}/reference/versioning.md` }
+          { text: 'Configuration', link: '/configuration' },
+          { text: 'CLI', link: '/cli' },
+          { text: 'Artifacts', link: '/artifacts' },
+          { text: 'Findings schema', link: '/findings-schema' },
+          { text: 'Support matrix', link: '/support-matrix' },
+          { text: 'Exit behavior', link: '/exit-behavior' },
+          { text: 'Versioning', link: '/versioning' }
         ]
       },
       {
         text: 'Help',
         items: [
-          { text: 'Troubleshooting', link: `${docsBase}/help/troubleshooting.md` },
-          { text: 'FAQ', link: `${docsBase}/help/faq.md` }
+          { text: 'Troubleshooting', link: '/troubleshooting' },
+          { text: 'FAQ', link: '/faq' }
         ]
       }
     ],

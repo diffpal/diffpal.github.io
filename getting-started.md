@@ -1,0 +1,54 @@
+# Getting Started
+
+Use this section to choose the shortest path to your first useful DiffPal
+review.
+
+## Prerequisites
+
+Before you start, have:
+
+- a repository on GitHub, GitLab, or Azure DevOps;
+- permission to add CI configuration and repository secrets;
+- one supported review provider or ACP-compatible agent;
+- a pull request or merge request you can use for a trusted first test.
+
+If the terms are new, read [How DiffPal works](/how-diffpal-works)
+and the [Glossary](/glossary) first.
+Before adding provider secrets, read
+[Secrets and fork PRs](/secrets-and-fork-prs).
+
+## Choose Code Host
+
+| Host | Start here |
+| --- | --- |
+| GitHub Actions | [GitHub quickstart](/github-quickstart) |
+| GitLab CI | [GitLab CI guide](/gitlab-ci) |
+| Azure Pipelines | [Azure Pipelines guide](/azure-pipelines) |
+| Custom CI/CD | [Custom CI/CD guide](/custom-ci) |
+
+## Choose Provider
+
+The fastest GitHub path uses the Codex API-key recipe because it is ready to
+copy. Codex is not the product boundary: the same DiffPal workflow works with
+other supported providers and ACP-compatible agents.
+
+| Provider path | Start here |
+| --- | --- |
+| Codex API key | [GitHub quickstart](/github-quickstart) |
+| Codex subscription auth, Copilot, OpenCode, or generic ACP | [Providers](/providers) |
+
+## Choose Feedback Mode
+
+| Mode | Use when |
+| --- | --- |
+| `summary` | You want a PR/MR summary and non-file artifacts without inline review comments. |
+| `review` | You want the summary plus file-level comments, discussions, or PR threads. |
+
+The GitHub quickstart uses `review` so the first run shows the full review
+surface.
+
+## Start
+
+Use [GitHub quickstart](/github-quickstart) to install DiffPal in a new GitHub
+repository, then use [Verify First Review](/verify-first-review) to confirm
+the first run worked. After that, continue with [Next Steps](/next-steps).

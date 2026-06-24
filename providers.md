@@ -1,0 +1,65 @@
+# Providers
+
+Use this section to choose and configure the review provider that DiffPal runs
+inside your CI job.
+
+DiffPal does not own or manage third-party provider accounts. Create, license,
+authenticate, and secure the provider account or CLI with that provider's own
+tools.
+
+For the conceptual difference between providers and agents, see
+[Providers and agents](/providers-and-agents).
+
+## Concepts
+
+| Term | Meaning |
+| --- | --- |
+| Code host | The system that owns pull requests or merge requests, such as GitHub, GitLab, or Azure DevOps. |
+| CI system | The runner that checks out the repository and executes DiffPal, such as GitHub Actions, GitLab CI, Azure Pipelines, or a custom runner. |
+| Provider | The configured runtime entry that DiffPal asks to perform review reasoning. |
+| Agent | The provider-backed CLI or ACP-compatible process that inspects the requested change or repository context and returns structured review output. |
+
+The code host decides where feedback is published. The CI system decides how
+commands and secrets run. The provider or agent decides which model, account,
+tools, sandbox, and credentials are used for review.
+
+## Provider Selection
+
+DiffPal selects one provider by matching `diffpal.provider` to an entry under
+`runtime.providers`:
+
+```yaml
+runtime:
+  providers:
+    codex-acp:
+      type: codex_acp
+      codex_acp:
+        reasoning_effort: low
+
+diffpal:
+  provider: codex-acp
+```
+
+The selected provider ID must exist in `runtime.providers`. Profiles and the
+`DIFFPAL_PROVIDER` environment variable can override the selected provider for a
+specific CI job.
+
+## Choose A Provider
+
+| Provider path | Use when | Setup name | Config example |
+| --- | --- | --- | --- |
+| [Codex](/codex) | You want the default copy-paste onboarding path or an existing Codex auth file in trusted CI. | `codex-api-key` or `codex-subscription` | [`examples/configs/codex-api-key/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/codex-api-key/config.yaml) |
+| [Copilot](/copilot) | Your organization already uses Copilot and can provide a supported Copilot token to CI. | `copilot-github-token` | [`examples/configs/copilot-github-token/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/copilot-github-token/config.yaml) |
+| [OpenCode](/opencode) | You want DiffPal to run through an OpenCode ACP provider already installed and authenticated in CI. | `opencode-acp` | [`examples/configs/opencode-acp/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/opencode-acp/config.yaml) |
+| [Custom ACP CLI](/custom-acp) | You have another CLI that can start an ACP stdio server. | `generic-acp` | [`examples/configs/generic-acp/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/generic-acp/config.yaml) |
+
+These setup names are accepted by:
+
+```bash
+diffpal init --wizard --setup <setup-name> --platform github
+```
+
+Use the provider page for install and authentication, then use the
+[Integrations](/integrations) section for host-specific CI syntax.
+
+Next step: open the setup page for the provider you plan to authenticate in CI.

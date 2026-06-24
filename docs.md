@@ -1,29 +1,76 @@
-# Docs
+# DiffPal Docs
 
-DiffPal technical documentation lives in the main repository and is the canonical source for setup, configuration, CLI usage, integrations, and provider recipes. This site links to those docs instead of maintaining separate copies.
+Choose the section that matches what you want to do.
 
-## Start Here
+## Getting Started
 
-- [GitHub quickstart](https://github.com/diffpal/diffpal/blob/main/docs/getting-started/github-quickstart.md)
-- [Custom CI/CD](https://github.com/diffpal/diffpal/blob/main/docs/integrations/custom-ci.md)
-- [Bring your own agent](https://github.com/diffpal/diffpal/blob/main/docs/providers/README.md)
-- [Configuration reference](https://github.com/diffpal/diffpal/blob/main/docs/reference/configuration.md)
-- [Troubleshooting](https://github.com/diffpal/diffpal/blob/main/docs/help/troubleshooting.md)
-- [FAQ](https://github.com/diffpal/diffpal/blob/main/docs/help/faq.md)
+Use [Getting Started](/getting-started) for the first successful
+review path. Start with the
+[GitHub quickstart](/github-quickstart), then verify the
+expected summary, comments, artifacts, and gate behavior with
+[Verify First Review](/verify-first-review). Continue with
+[Next Steps](/next-steps) after the first run works.
 
-## Browse By Goal
+## Concepts
 
-| Goal | Canonical docs |
-| --- | --- |
-| Understand the review flow | [How DiffPal works](https://github.com/diffpal/diffpal/blob/main/docs/concepts/how-diffpal-works.md) |
-| Set up GitHub, GitLab, or Azure | [Integrations](https://github.com/diffpal/diffpal/blob/main/docs/integrations/README.md) |
-| Choose or configure a provider | [Providers](https://github.com/diffpal/diffpal/blob/main/docs/providers/README.md) |
-| Consume artifacts | [Artifacts reference](https://github.com/diffpal/diffpal/blob/main/docs/reference/artifacts.md) |
-| Check supported outputs | [Support matrix](https://github.com/diffpal/diffpal/blob/main/docs/reference/support-matrix.md) |
-| Secure secrets and fork PRs | [Secrets and fork PRs](https://github.com/diffpal/diffpal/blob/main/docs/guides/secrets-and-fork-prs.md) |
+Use [Concepts](/concepts) to understand how DiffPal turns pull request
+diffs into structured findings and host-native feedback. The section also
+includes the [comparison guide](/comparison).
 
-## More Resources
+- [How DiffPal works](/how-diffpal-works)
+- [Review lifecycle](/review-lifecycle)
+- [Providers and agents](/providers-and-agents)
+- [Findings, feedback, and gates](/findings-feedback-and-gates)
+- [Glossary](/glossary)
 
-- [Examples gallery](https://github.com/diffpal/diffpal/tree/main/examples)
-- [Changelog](https://github.com/diffpal/diffpal/blob/main/CHANGELOG.md)
-- [Main repository](https://github.com/diffpal/diffpal)
+## Integrations
+
+Use [Integrations](/integrations) for CI setup and host-specific
+requirements:
+
+- [GitHub Actions](/github-actions)
+- [GitLab CI](/gitlab-ci)
+- [Azure Pipelines](/azure-pipelines)
+- [Custom CI/CD](/custom-ci)
+
+## Providers
+
+Use [Providers](/providers) to choose Codex, Copilot, OpenCode, or a
+custom ACP-compatible CLI:
+
+- [Codex](/codex)
+- [Copilot](/copilot)
+- [OpenCode](/opencode)
+- [Custom ACP-compatible CLI](/custom-acp)
+
+## Guides
+
+Use [Guides](/guides) for operational guidance that spans setup and
+reference material:
+
+- [Secrets and fork PRs](/secrets-and-fork-prs)
+- [Security controls](/security)
+
+## Reference
+
+Use [Reference](/reference) for stable contracts:
+
+- [Configuration](/configuration)
+- [CLI](/cli)
+- [Findings schema](/findings-schema)
+- [Artifacts](/artifacts)
+- [Exit behavior](/exit-behavior)
+- [Versioning](/versioning)
+- [Support matrix](/support-matrix)
+
+## Help
+
+Use [Help](/help) for operational fixes, including
+[troubleshooting](/troubleshooting) for missing comments, token failures,
+fork PRs, and incomplete diffs. Use the [FAQ](/faq) for short answers
+to common product, provider, CI, and artifact questions.
+
+## Examples
+
+Use the [examples gallery](https://github.com/diffpal/diffpal/blob/main/examples/README.md) for copy-paste configs and CI
+files.
