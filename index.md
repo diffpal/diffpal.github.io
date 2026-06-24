@@ -75,5 +75,5 @@ DiffPal sends review requests to the provider you configure. Depending on that p
 ## Start Reviewing
 
 - [Start with GitHub Actions](https://github.com/diffpal/diffpal/blob/main/docs/getting-started/github-quickstart.md)
-- [Use another CI/CD system](https://github.com/diffpal/diffpal/blob/main/docs/integrations/README.md#common-setup)
-- [Bring your own agent](https://github.com/diffpal/diffpal/blob/main/docs/integrations/README.md#using-another-acp-cli)
+- [Use another CI/CD system](https://github.com/diffpal/diffpal/blob/main/docs/integrations/custom-ci.md)
+- [Bring your own agent](https://github.com/diffpal/diffpal/blob/main/docs/providers/README.md)

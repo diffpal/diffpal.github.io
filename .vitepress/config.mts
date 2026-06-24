@@ -54,8 +54,8 @@ export default defineConfig({
         text: 'Get started',
         items: [
           { text: 'GitHub quickstart', link: `${docsBase}/getting-started/github-quickstart.md` },
-          { text: 'Custom CI/CD', link: `${docsBase}/integrations/README.md#common-setup` },
-          { text: 'Bring your own agent', link: `${docsBase}/integrations/README.md#using-another-acp-cli` },
+          { text: 'Custom CI/CD', link: `${docsBase}/integrations/custom-ci.md` },
+          { text: 'Bring your own agent', link: `${docsBase}/providers/README.md` },
           { text: 'Configuration reference', link: `${docsBase}/reference/configuration.md` },
           { text: 'Troubleshooting', link: `${docsBase}/help/troubleshooting.md` }
         ]
@@ -72,21 +72,23 @@ export default defineConfig({
         items: [
           { text: 'GitHub Actions', link: `${docsBase}/integrations/github-actions.md` },
           { text: 'GitLab CI', link: `${docsBase}/integrations/gitlab-ci.md` },
-          { text: 'Azure Pipelines', link: `${docsBase}/integrations/azure-pipelines.md` }
+          { text: 'Azure Pipelines', link: `${docsBase}/integrations/azure-pipelines.md` },
+          { text: 'Custom CI/CD', link: `${docsBase}/integrations/custom-ci.md` }
         ]
       },
       {
         text: 'Providers',
         items: [
-          { text: 'Provider recipes', link: `${docsBase}/integrations/README.md#common-setup` },
-          { text: 'Provider model', link: `${docsBase}/reference/configuration.md#provider-model` },
-          { text: 'Generic ACP CLI', link: `${docsBase}/reference/configuration.md#generic-acp-cli` }
+          { text: 'Provider recipes', link: `${docsBase}/providers/README.md` },
+          { text: 'Provider model', link: `${docsBase}/concepts/providers-and-agents.md` },
+          { text: 'Generic ACP CLI', link: `${docsBase}/providers/custom-acp.md` }
         ]
       },
       {
         text: 'Guides',
         items: [
           { text: 'Verify first review', link: `${docsBase}/getting-started/verify-first-review.md` },
+          { text: 'Secrets and fork PRs', link: `${docsBase}/guides/secrets-and-fork-prs.md` },
           { text: 'Examples gallery', link: examplesBase }
         ]
       },
@@ -104,7 +106,7 @@ export default defineConfig({
         text: 'Help',
         items: [
           { text: 'Troubleshooting', link: `${docsBase}/help/troubleshooting.md` },
-          { text: 'Fork pull requests and secrets', link: `${docsBase}/help/troubleshooting.md#fork-pull-requests-and-secrets` }
+          { text: 'FAQ', link: `${docsBase}/help/faq.md` }
         ]
       }
     ],

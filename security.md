@@ -12,6 +12,6 @@ DiffPal sends review requests to the provider you configure. Depending on that p
 
 ## Canonical References
 
-- [GitHub quickstart security notes](https://github.com/diffpal/diffpal/blob/main/docs/getting-started/github-quickstart.md#2-add-secret)
-- [Fork pull requests and secrets](https://github.com/diffpal/diffpal/blob/main/docs/help/troubleshooting.md#fork-pull-requests-and-secrets)
+- [GitHub quickstart security notes](https://github.com/diffpal/diffpal/blob/main/docs/getting-started/github-quickstart.md#2-add-the-provider-secret)
+- [Secrets and fork PRs](https://github.com/diffpal/diffpal/blob/main/docs/guides/secrets-and-fork-prs.md)
 - [Platform authentication reference](https://github.com/diffpal/diffpal/blob/main/docs/reference/configuration.md#platform-auth)
