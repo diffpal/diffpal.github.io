@@ -33,7 +33,7 @@ After a successful review, DiffPal publishes the same core outputs across suppor
 
 ## How It Works
 
-1. Collect the PR or merge request diff.
+1. Resolve the PR or MR review scope.
 2. Invoke the configured provider or ACP-compatible agent.
 3. Validate structured findings against the changed code.
 4. Publish feedback and apply the configured gate.
