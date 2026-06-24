@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: DiffPal
-  text: Open-source AI PR review you control.
+  text: Open-source AI pull request review you control.
   tagline: Bring your own agent. Run it in your CI. Publish consistent findings, summaries, and merge gates.
   image:
     src: /logo.png
