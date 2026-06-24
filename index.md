@@ -70,7 +70,7 @@ CI installs and authenticates the provider you choose, while DiffPal keeps the r
 
 DiffPal runs in your CI or workflow environment. Your repository supplies the platform token used to publish feedback and the provider credentials used by the selected review agent.
 
-DiffPal sends review requests to the provider you configure. Depending on that provider and agent setup, pull request diffs or source code may be sent to that provider. Choose provider credentials, fork-pull-request rules, and CI permissions according to your repository's trust model.
+DiffPal resolves the PR or MR review scope and sends review input to the provider you configure. Depending on that provider and agent setup, the provider or agent may inspect source context. Choose provider credentials, fork-pull-request rules, and CI permissions according to your repository's trust model.
 
 ## Start Reviewing
 
