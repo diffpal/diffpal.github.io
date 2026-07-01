@@ -1,0 +1,58 @@
+# DiffPal
+
+> DiffPal is open-source AI pull request review that runs in your CI, lets teams bring their own provider or ACP-compatible agent, and publishes consistent findings, summaries, artifacts, and merge gates across supported code hosts.
+
+## Start Here
+
+- [Home](/): Product overview and core outcomes.
+- [Docs](/docs): Main documentation index.
+- [GitHub Quickstart](/github-quickstart): Fastest path to a first DiffPal review.
+- [Getting Started](/getting-started): Choose a code host, provider, and feedback mode.
+
+## Core Concepts
+
+- [How DiffPal Works](/how-diffpal-works): Review workflow and system boundaries.
+- [Review Lifecycle](/review-lifecycle): Stages from scope resolution through publishing and gates.
+- [Providers And Agents](/providers-and-agents): Provider, agent, CI, and code host responsibilities.
+- [Findings, Feedback, And Gates](/findings-feedback-and-gates): Finding taxonomy, publish surfaces, and blocking policy.
+- [Comparison Guide](/comparison): When DiffPal fits compared with hosted reviewers and other tools.
+- [Glossary](/glossary): Definitions for DiffPal terms.
+
+## Integrations
+
+- [Integrations](/integrations): Shared CI and code host setup guidance.
+- [GitHub Actions](/github-actions): Run DiffPal in GitHub Actions.
+- [GitLab CI](/gitlab-ci): Run DiffPal in GitLab merge request pipelines.
+- [Azure Pipelines](/azure-pipelines): Run DiffPal in Azure Pipelines pull request validation.
+- [Custom CI/CD](/custom-ci): Run DiffPal outside the native host wrappers.
+
+## Providers
+
+- [Providers](/providers): Choose and configure a review provider.
+- [Codex Provider](/codex): Use Codex through the default onboarding path.
+- [Copilot Provider](/copilot): Use Copilot with a supported token in CI.
+- [OpenCode Provider](/opencode): Use OpenCode as an ACP provider.
+- [Custom ACP-Compatible CLI](/custom-acp): Connect another ACP stdio server.
+
+## Reference
+
+- [Configuration Reference](/configuration): DiffPal config file shape and environment overrides.
+- [CLI Reference](/cli): Commands, flags, and installation paths.
+- [Artifacts Reference](/artifacts): Files written by DiffPal review commands.
+- [Findings Schema](/findings-schema): Machine-readable findings bundle contract.
+- [Support Matrix](/support-matrix): Supported platforms, providers, and outputs.
+- [Exit Behavior](/exit-behavior): Process exit codes and merge gate behavior.
+- [Versioning](/versioning): CLI, config, artifact, and wrapper compatibility policy.
+
+## Help
+
+- [Troubleshooting](/troubleshooting): Fix common setup, auth, publishing, and review failures.
+- [FAQ](/faq): Short answers for product, provider, CI, and artifact questions.
+- [Security Controls](/security): Trust boundaries, credentials, and artifact handling.
+- [Secrets And Fork Pull Requests](/secrets-and-fork-prs): Safe patterns for secret-backed review.
+
+## Optional
+
+- [DiffPal GitHub Repository](https://github.com/diffpal/diffpal): Source code, issues, and releases.
+- [Examples Gallery](https://github.com/diffpal/diffpal/blob/main/examples/README.md): Copy-paste configs and CI files.
+- [Changelog](https://github.com/diffpal/diffpal/blob/main/CHANGELOG.md): Release history.
