@@ -50,6 +50,8 @@
 - [FAQ](/faq): Short answers for product, provider, CI, and artifact questions.
 - [Security Controls](/security): Trust boundaries, credentials, and artifact handling.
 - [Secrets And Fork Pull Requests](/secrets-and-fork-prs): Safe patterns for secret-backed review.
+- [Migrate To v1](/migrate-to-v1): Remove obsolete local state and verify host reconciliation.
+- [Privacy](/privacy): Consent-first analytics and privacy choices.
 
 ## Optional
 

@@ -1,40 +1,28 @@
 import { defineConfig } from 'vitepress'
+import fs from 'node:fs'
 
 const siteTitle = 'DiffPal'
 const siteDescription = 'Open-source AI PR review you control.'
 const mainRepo = 'https://github.com/diffpal/diffpal'
 const examplesBase = `${mainRepo}/tree/main/examples`
 const changelog = `${mainRepo}/blob/main/CHANGELOG.md`
-const googleAnalyticsId = 'G-B8G6D7K9SQ'
+const docsSource = JSON.parse(fs.readFileSync('docs-source.json', 'utf8'))
+const rewrites = JSON.parse(fs.readFileSync('.generated-rewrites.json', 'utf8'))
 
 export default defineConfig({
   lang: 'en-US',
   title: siteTitle,
   description: siteDescription,
   base: '/',
+  srcDir: '.generated',
+  rewrites,
   cleanUrls: true,
   lastUpdated: true,
-  srcExclude: ['README.md', 'AGENTS.md'],
   sitemap: {
     hostname: 'https://diffpal.github.io'
   },
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/logo-mark.png' }],
-    [
-      'script',
-      {
-        async: '',
-        src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`
-      }
-    ],
-    [
-      'script',
-      {},
-      `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${googleAnalyticsId}');`
-    ],
     ['meta', { name: 'theme-color', content: '#2563eb' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: siteTitle }],
@@ -50,7 +38,7 @@ gtag('config', '${googleAnalyticsId}');`
       provider: 'local'
     },
     editLink: {
-      pattern: 'https://github.com/diffpal/diffpal.github.io/edit/main/:path',
+      pattern: `${mainRepo}/edit/${docsSource.ref}/docs/:path`,
       text: 'Edit this page on GitHub'
     },
     socialLinks: [
@@ -61,6 +49,7 @@ gtag('config', '${googleAnalyticsId}');`
       { text: 'Docs', link: '/docs' },
       { text: 'Examples', link: examplesBase },
       { text: 'Security', link: '/security' },
+      { text: 'Privacy', link: '/privacy' },
       { text: 'Changelog', link: changelog },
       { text: 'GitHub', link: mainRepo }
     ],
@@ -113,6 +102,7 @@ gtag('config', '${googleAnalyticsId}');`
           { text: 'Verify first review', link: '/verify-first-review' },
           { text: 'Next steps', link: '/next-steps' },
           { text: 'Secrets and fork PRs', link: '/secrets-and-fork-prs' },
+          { text: 'Migrate to v1', link: '/migrate-to-v1' },
           { text: 'Examples gallery', link: examplesBase }
         ]
       },

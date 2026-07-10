@@ -34,6 +34,57 @@
   max-width: 680px;
 }
 
+.privacy-consent {
+  position: fixed;
+  z-index: 100;
+  right: 1rem;
+  bottom: 1rem;
+  max-width: 34rem;
+  padding: 1rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 0.75rem;
+  background: var(--vp-c-bg-soft);
+  box-shadow: var(--vp-shadow-3);
+}
+
+.privacy-consent p {
+  margin: 0 0 0.75rem;
+}
+
+.privacy-consent div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.privacy-consent button,
+.privacy-choice-button {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.privacy-consent .accept {
+  color: white;
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-1);
+}
+
+.privacy-consent .decline,
+.privacy-choice-button {
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+}
+
+.privacy-choice-button {
+  position: fixed;
+  z-index: 90;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 0.8rem;
+}
+
 @media (max-width: 640px) {
   .vp-doc table {
     display: block;

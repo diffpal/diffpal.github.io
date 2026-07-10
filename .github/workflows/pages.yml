@@ -22,6 +22,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Resolve canonical docs source
+        id: docs-source
+        run: echo "ref=$(node -p \"require('./docs-source.json').ref\")" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout canonical DiffPal docs
+        uses: actions/checkout@v5
+        with:
+          repository: diffpal/diffpal
+          ref: ${{ steps.docs-source.outputs.ref }}
+          path: .source/diffpal
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:

@@ -1,4 +1,7 @@
 node_modules/
+.generated/
+.generated-rewrites.json
+.source/
 .vitepress/cache/
 .vitepress/dist/
 .DS_Store
