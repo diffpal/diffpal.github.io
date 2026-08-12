@@ -16,6 +16,9 @@ hero:
       text: Read the docs
       link: /docs
     - theme: alt
+      text: Live Demo
+      link: https://github.com/diffpal/demo/pull/3
+    - theme: alt
       text: View on GitHub
       link: https://github.com/diffpal/diffpal
 ---
