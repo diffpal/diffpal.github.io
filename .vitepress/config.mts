@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 const siteTitle = 'DiffPal'
 const siteDescription = 'Open-source AI PR review you control.'
 const mainRepo = 'https://github.com/diffpal/diffpal'
-const demoReview = 'https://github.com/diffpal/demo/pull/3'
+const demoReview = 'https://github.com/diffpal/demo/pull/13'
 const examplesBase = `${mainRepo}/tree/main/examples`
 const changelog = `${mainRepo}/blob/main/CHANGELOG.md`
 const googleAnalyticsId = 'G-B8G6D7K9SQ'
