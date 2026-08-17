@@ -17,7 +17,7 @@ hero:
       link: /docs
     - theme: alt
       text: Live Demo
-      link: https://github.com/diffpal/demo/pull/3
+      link: https://github.com/diffpal/demo/pull/13
     - theme: alt
       text: View on GitHub
       link: https://github.com/diffpal/diffpal
