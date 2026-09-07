@@ -26,9 +26,9 @@ if: ${{ !github.event.pull_request.draft && github.event.pull_request.head.repo.
 guards in place, but test the first run with a same-repository, non-draft pull
 request.
 
-**Related:** [GitHub quickstart](/github-quickstart),
-[GitHub Actions](/github-actions), and
-[Secrets and fork PRs](/secrets-and-fork-prs).
+**Related:** [GitHub quickstart](/getting-started/github-quickstart),
+[GitHub Actions](/integrations/github-actions), and
+[Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## Provider Authentication Fails
 
@@ -53,9 +53,9 @@ Use `--mode gitlab`, `--mode ado`, or `--mode local` for other runs.
 secret only to trusted jobs, and follow the selected provider page for the
 exact authentication command.
 
-**Related:** [Providers](/providers),
-[CLI doctor](/cli#diffpal-doctor), and
-[Secrets and fork PRs](/secrets-and-fork-prs).
+**Related:** [Providers](/providers/),
+[CLI doctor](/reference/cli#diffpal-doctor), and
+[Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## DiffPal Cannot Find The Base Or Head Revision
 
@@ -79,10 +79,10 @@ GitLab CI set `GIT_DEPTH: "0"`; in Azure Pipelines set `fetchDepth: 0`. For
 custom CI, explicitly fetch the target branch and pass stable `--base` and
 `--head` values.
 
-**Related:** [GitHub Actions checkout](/github-actions#required-checkout-behavior),
-[GitLab checkout](/gitlab-ci#required-checkout-behavior),
-[Azure checkout](/azure-pipelines#required-checkout-behavior),
-and [Custom CI base/head resolution](/custom-ci#base-and-head-resolution).
+**Related:** [GitHub Actions checkout](/integrations/github-actions#required-checkout-behavior),
+[GitLab checkout](/integrations/gitlab-ci#required-checkout-behavior),
+[Azure checkout](/integrations/azure-pipelines#required-checkout-behavior),
+and [Custom CI base/head resolution](/integrations/custom-ci#base-and-head-resolution).
 
 ## Review Completes But No Summary Appears
 
@@ -105,9 +105,9 @@ For local review, check the redirected stdout file if your CI captures one.
 DevOps. Ensure the host token is present with write permission and upload
 `.artifacts/diffpal/` for retained summaries.
 
-**Related:** [Artifacts reference](/artifacts),
-[Support matrix](/support-matrix), and
-[Integrations](/integrations).
+**Related:** [Artifacts reference](/reference/artifacts),
+[Support matrix](/reference/support-matrix), and
+[Integrations](/integrations/).
 
 ## Summary Appears But Inline Findings Do Not
 
@@ -131,9 +131,9 @@ file locations.
 without changed-line locations, review the provider output and diff range; only
 changed-file locations can become inline host feedback.
 
-**Related:** [Feedback modes](/integrations#feedback-modes),
-[Findings, feedback, and gates](/findings-feedback-and-gates),
-and [Findings schema](/findings-schema).
+**Related:** [Feedback modes](/integrations/#feedback-modes),
+[Findings, feedback, and gates](/concepts/findings-feedback-and-gates),
+and [Findings schema](/reference/findings-schema).
 
 ## No Findings Were Produced
 
@@ -156,9 +156,9 @@ Then inspect `.artifacts/diffpal/findings.json`.
 right, treat no findings as a completed review and tune repository instructions
 only when the provider is consistently missing issues your team expects.
 
-**Related:** [Verify First Review](/verify-first-review),
-[Review lifecycle](/review-lifecycle), and
-[Configuration review settings](/configuration#review-settings).
+**Related:** [Verify First Review](/getting-started/verify-first-review),
+[Review lifecycle](/concepts/review-lifecycle), and
+[Configuration review settings](/reference/configuration#review-settings).
 
 ## Publishing Is Denied
 
@@ -181,10 +181,10 @@ Use `github` or `ado` for the other native publishers.
 grant the minimum write permission needed for the selected feedback surface.
 Keep host credentials separate from provider credentials.
 
-**Related:** [Secrets and fork PRs](/secrets-and-fork-prs),
-[GitHub token permissions](/github-actions#required-token-and-minimum-permissions),
-[GitLab tokens](/gitlab-ci#required-token-and-minimum-permissions),
-and [Azure token setup](/azure-pipelines#required-token-and-minimum-permissions).
+**Related:** [Secrets and fork PRs](/guides/secrets-and-fork-prs),
+[GitHub token permissions](/integrations/github-actions#required-token-and-minimum-permissions),
+[GitLab tokens](/integrations/gitlab-ci#required-token-and-minimum-permissions),
+and [Azure token setup](/integrations/azure-pipelines#required-token-and-minimum-permissions).
 
 ## Fork PRs Are Skipped
 
@@ -208,10 +208,10 @@ same-project MR conditions and a maintainer-controlled trusted-review guard.
 no-secret CI or use a maintainer-approved workflow that does not execute
 fork-controlled code with secrets.
 
-**Related:** [Secrets and fork PRs](/secrets-and-fork-prs),
-[GitHub Actions fork behavior](/github-actions#fork-or-untrusted-contribution-behavior),
-[GitLab fork behavior](/gitlab-ci#fork-or-untrusted-contribution-behavior),
-and [Azure fork behavior](/azure-pipelines#fork-or-untrusted-contribution-behavior).
+**Related:** [Secrets and fork PRs](/guides/secrets-and-fork-prs),
+[GitHub Actions fork behavior](/integrations/github-actions#fork-or-untrusted-contribution-behavior),
+[GitLab fork behavior](/integrations/gitlab-ci#fork-or-untrusted-contribution-behavior),
+and [Azure fork behavior](/integrations/azure-pipelines#fork-or-untrusted-contribution-behavior).
 
 ## Expected Artifacts Are Missing
 
@@ -233,8 +233,8 @@ find .artifacts/diffpal -maxdepth 1 -type f -print
 stdout to `.artifacts/diffpal/summary.md` when you want a retained summary.
 Check `--out` if `findings.json` was intentionally moved.
 
-**Related:** [Artifacts reference](/artifacts) and
-[Custom CI outputs](/custom-ci#outputs).
+**Related:** [Artifacts reference](/reference/artifacts) and
+[Custom CI outputs](/integrations/custom-ci#outputs).
 
 ## SARIF Or Code Quality Output Is Missing
 
@@ -256,9 +256,9 @@ diffpal sarif --input .artifacts/diffpal/findings.json --out .artifacts/diffpal/
 run. Use GitLab CI report configuration for Code Quality. For custom CI or
 Azure, convert findings to SARIF explicitly when needed.
 
-**Related:** [Artifacts reference](/artifacts),
-[Support matrix](/support-matrix), and
-[CLI SARIF command](/cli#diffpal-sarif).
+**Related:** [Artifacts reference](/reference/artifacts),
+[Support matrix](/reference/support-matrix), and
+[CLI SARIF command](/reference/cli#diffpal-sarif).
 
 ## Gate Blocks Unexpectedly
 
@@ -275,9 +275,9 @@ findings with an enabled gate return exit code `10`.
 not block, raise `diffpal.gate.block_on` to a higher severity or improve review
 instructions. If it should block, fix the code.
 
-**Related:** [Exit behavior](/exit-behavior),
-[Configuration gate](/configuration#gate), and
-[Findings, feedback, and gates](/findings-feedback-and-gates).
+**Related:** [Exit behavior](/reference/exit-behavior),
+[Configuration gate](/reference/configuration#gate), and
+[Findings, feedback, and gates](/concepts/findings-feedback-and-gates).
 
 ## Gate Does Not Block
 
@@ -297,9 +297,38 @@ diffpal --profile ci review local --base origin/main --head HEAD --gate
 **Fix:** Enable `gate: true` in the action/task or pass `--gate` to the CLI.
 Set `diffpal.gate.block_on` to the minimum severity that should fail the job.
 
-**Related:** [Merge gates](/integrations#merge-gates),
-[Exit behavior](/exit-behavior), and
-[Configuration gate](/configuration#gate).
+**Related:** [Merge gates](/integrations/#merge-gates),
+[Exit behavior](/reference/exit-behavior), and
+[Configuration gate](/reference/configuration#gate).
+
+## Provider Returns Invalid Structured Output
+
+**Symptom:** The review fails with `structured output schema validation error`,
+`no JSON object found`, or a CI wrapper message that the provider returned an
+empty or invalid structured response.
+
+**Likely causes:** The provider returned prose, partial output, an empty
+response, or JSON that did not match the DiffPal review schema after retries.
+
+**Diagnostic:** Rerun the resolved DiffPal command with `--debug`. In Azure
+Pipelines, copy the `final CLI args` line from the task log and add `--debug`
+before `review`:
+
+```bash
+diffpal --debug --profile ci review ado --base "$BASE_SHA" --head "$HEAD_SHA"
+```
+
+Debug logs include a `provider response:` block for invalid structured output.
+Treat that block as sensitive repository/provider output.
+
+**Fix:** Check provider availability, authentication, quota, and model
+configuration. If the provider response is valid review content but invalid
+JSON, use repository instructions or provider settings that preserve the
+structured output contract.
+
+**Related:** [CLI debug flag](/reference/cli#global-flags),
+[Providers](/providers/), and
+[Security controls](/security#artifacts-and-logs).
 
 ## Local Execution Works But CI Execution Fails
 
@@ -323,9 +352,9 @@ In host CI, use the matching host mode.
 make the intended profile explicit, expose secrets only to trusted jobs, and
 pass host metadata or base/head values from CI variables.
 
-**Related:** [CLI reference](/cli),
-[Custom CI lifecycle](/custom-ci#generic-execution-lifecycle),
-and [Providers](/providers).
+**Related:** [CLI reference](/reference/cli),
+[Custom CI lifecycle](/integrations/custom-ci#generic-execution-lifecycle),
+and [Providers](/providers/).
 
 Next step: after applying the fix, rerun `diffpal doctor` in the same CI mode
 that failed.

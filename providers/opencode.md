@@ -86,7 +86,7 @@ maintainer-approved jobs that do not execute untrusted code with secrets.
 ## Links To Complete CI Examples
 
 - [OpenCode ACP config](https://github.com/diffpal/diffpal/blob/main/examples/configs/opencode-acp/config.yaml)
-- [Integration guides](/integrations)
+- [Integration guides](/integrations/)
 
 Next step: adapt the OpenCode config, then choose the integration page for your
 CI host.

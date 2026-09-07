@@ -34,7 +34,7 @@ secret-backed DiffPal review only for same-repository pull requests, trusted
 branches, or maintainer-approved jobs that do not execute fork-controlled code
 with secrets.
 
-Use [Secrets and fork PRs](/secrets-and-fork-prs) for host-specific
+Use [Secrets and fork PRs](/guides/secrets-and-fork-prs) for host-specific
 guards and safe external contribution patterns.
 
 ## Artifacts And Logs
@@ -54,5 +54,5 @@ non-sensitive description and ask maintainers for a private reporting channel.
 Do not include secrets, exploit details, private code, provider responses, or
 private artifacts in a public issue.
 
-Next step: read [Secrets and fork PRs](/secrets-and-fork-prs) before
+Next step: read [Secrets and fork PRs](/guides/secrets-and-fork-prs) before
 enabling provider credentials in CI.

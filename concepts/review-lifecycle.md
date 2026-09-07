@@ -53,5 +53,5 @@ findings exist. When disabled, feedback and artifacts can still show blocking
 findings without failing the merge check.
 
 For exact config fields and exit behavior, use
-[Configuration](/configuration) and
-[Exit behavior](/exit-behavior).
+[Configuration](/reference/configuration) and
+[Exit behavior](/reference/exit-behavior).

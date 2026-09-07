@@ -57,14 +57,14 @@ DiffPal did not produce a complete review.
 ## Troubleshooting
 
 - Missing summary or inline comments:
-  [Review Completes But No Summary Appears](/troubleshooting#review-completes-but-no-summary-appears)
+  [Review Completes But No Summary Appears](/help/troubleshooting#review-completes-but-no-summary-appears)
 - Missing or incomplete diff:
-  [DiffPal Cannot Find The Base Or Head Revision](/troubleshooting#diffpal-cannot-find-the-base-or-head-revision)
+  [DiffPal Cannot Find The Base Or Head Revision](/help/troubleshooting#diffpal-cannot-find-the-base-or-head-revision)
 - Provider auth failures:
-  [Provider Authentication Fails](/troubleshooting#provider-authentication-fails)
+  [Provider Authentication Fails](/help/troubleshooting#provider-authentication-fails)
 - Gate failures:
-  [Gate Blocks Unexpectedly](/troubleshooting#gate-blocks-unexpectedly)
+  [Gate Blocks Unexpectedly](/help/troubleshooting#gate-blocks-unexpectedly)
 - Fork PR secrets:
-  [Secrets and fork PRs](/secrets-and-fork-prs)
+  [Secrets and fork PRs](/guides/secrets-and-fork-prs)
 
-After the first run is healthy, continue with [Next Steps](/next-steps).
+After the first run is healthy, continue with [Next Steps](/getting-started/next-steps).

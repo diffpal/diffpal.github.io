@@ -12,19 +12,19 @@ Before you start, have:
 - one supported review provider or ACP-compatible agent;
 - a pull request or merge request you can use for a trusted first test.
 
-If the terms are new, read [How DiffPal works](/how-diffpal-works)
-and the [Glossary](/glossary) first.
+If the terms are new, read [How DiffPal works](/concepts/how-diffpal-works)
+and the [Glossary](/reference/glossary) first.
 Before adding provider secrets, read
-[Secrets and fork PRs](/secrets-and-fork-prs).
+[Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## Choose Code Host
 
 | Host | Start here |
 | --- | --- |
-| GitHub Actions | [GitHub quickstart](/github-quickstart) |
-| GitLab CI | [GitLab CI guide](/gitlab-ci) |
-| Azure Pipelines | [Azure Pipelines guide](/azure-pipelines) |
-| Custom CI/CD | [Custom CI/CD guide](/custom-ci) |
+| GitHub Actions | [GitHub quickstart](/getting-started/github-quickstart) |
+| GitLab CI | [GitLab CI guide](/integrations/gitlab-ci) |
+| Azure Pipelines | [Azure Pipelines guide](/integrations/azure-pipelines) |
+| Custom CI/CD | [Custom CI/CD guide](/integrations/custom-ci) |
 
 ## Choose Provider
 
@@ -34,8 +34,8 @@ other supported providers and ACP-compatible agents.
 
 | Provider path | Start here |
 | --- | --- |
-| Codex API key | [GitHub quickstart](/github-quickstart) |
-| Codex subscription auth, Copilot, OpenCode, or generic ACP | [Providers](/providers) |
+| Codex API key | [GitHub quickstart](/getting-started/github-quickstart) |
+| Codex subscription auth, Copilot, OpenCode, or generic ACP | [Providers](/providers/) |
 
 ## Choose Feedback Mode
 
@@ -49,6 +49,6 @@ surface.
 
 ## Start
 
-Use [GitHub quickstart](/github-quickstart) to install DiffPal in a new GitHub
-repository, then use [Verify First Review](/verify-first-review) to confirm
-the first run worked. After that, continue with [Next Steps](/next-steps).
+Use [GitHub quickstart](/getting-started/github-quickstart) to install DiffPal in a new GitHub
+repository, then use [Verify First Review](/getting-started/verify-first-review) to confirm
+the first run worked. After that, continue with [Next Steps](/getting-started/next-steps).

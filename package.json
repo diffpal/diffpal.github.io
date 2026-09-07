@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress .",
-    "docs:build": "vitepress build .",
+    "docs:build": "vitepress build . && node scripts/generate-redirects.js",
     "docs:preview": "vitepress preview .",
     "check": "npm run docs:build && node scripts/verify-build-output.js"
   },

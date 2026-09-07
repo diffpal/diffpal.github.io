@@ -51,5 +51,5 @@ safely:
 - enable a gate only after the team agrees on the blocking threshold;
 - lower the threshold later without changing provider setup.
 
-Use [Integrations](/integrations) for host feedback modes and
-[Configuration](/configuration#gate) for the gate field.
+Use [Integrations](/integrations/) for host feedback modes and
+[Configuration](/reference/configuration#gate) for the gate field.

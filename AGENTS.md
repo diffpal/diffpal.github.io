@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository publishes the DiffPal documentation site at `https://diffpal.github.io/` using VitePress. Public documentation Markdown lives at the repository root, for example `index.md`, `quickstart.md`, and `config-reference.md`. Do not add a `docs/` directory.
+This repository publishes the DiffPal documentation site at `https://diffpal.github.io/` using VitePress. Public documentation Markdown lives at the repository root and in topic directories such as `getting-started/`, `integrations/`, and `reference/`. Keep `index.md` and `docs.md` at the root; do not add a `docs/` directory.
 
 VitePress configuration lives in `.vitepress/config.mts`. Theme customizations are in `.vitepress/theme/index.ts` and `.vitepress/theme/custom.css`. Static assets live in `public/`, currently `public/favicon.svg`. GitHub Actions workflows live in `.github/workflows/`.
 
@@ -48,7 +48,7 @@ Keep CSS restrained and scoped to `.vitepress/theme/custom.css`. Use TypeScript/
 
 ## Testing Guidelines
 
-There is no separate unit test suite. Treat `npm run docs:build` as the required validation gate. Before publishing substantial documentation changes, also run `npm run docs:preview` and verify important routes such as `/`, `/quickstart`, and `/troubleshooting`.
+There is no separate unit test suite. Treat `npm run docs:build` as the required validation gate. Before publishing substantial documentation changes, also run `npm run docs:preview` and verify important routes such as `/`, `/getting-started/github-quickstart`, and `/help/troubleshooting`.
 
 ## Commit & Pull Request Guidelines
 

@@ -88,7 +88,7 @@ secrets.
 ## Links To Complete CI Examples
 
 - [Generic ACP config](https://github.com/diffpal/diffpal/blob/main/examples/configs/generic-acp/config.yaml)
-- [Custom CI/CD guide](/custom-ci)
+- [Custom CI/CD guide](/integrations/custom-ci)
 
 Next step: replace `generic_acp.cmd` with your ACP command, then run the
-portable [Custom CI/CD](/custom-ci) flow.
+portable [Custom CI/CD](/integrations/custom-ci) flow.

@@ -27,8 +27,8 @@ predictable and let generated configs use stable provider IDs.
 server. DiffPal does not need provider-specific behavior for that path; it only
 needs the command that starts the ACP-compatible agent.
 
-Use [Providers](/providers) for setup pages and
-[Configuration](/configuration) for the exhaustive config
+Use [Providers](/providers/) for setup pages and
+[Configuration](/reference/configuration) for the exhaustive config
 contract.
 
 ## Authentication Ownership

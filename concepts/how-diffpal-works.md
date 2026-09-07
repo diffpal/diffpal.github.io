@@ -30,8 +30,8 @@ provider-specific tools, credentials, sandboxing, and account management.
 DiffPal chooses a provider through `diffpal.provider`, sends the review task,
 and expects structured review output back.
 
-Use [Providers and agents](/providers-and-agents) for the provider model and
-[Providers](/providers) for setup pages.
+Use [Providers and agents](/concepts/providers-and-agents) for the provider model and
+[Providers](/providers/) for setup pages.
 
 ## Publisher Boundary
 
@@ -40,7 +40,7 @@ GitLab, and Azure DevOps have native publishers. Custom CI can still produce
 local artifacts, and can publish through a supported code host when the job has
 the required host metadata and credentials.
 
-Use the [support matrix](/support-matrix) for supported host
+Use the [support matrix](/reference/support-matrix) for supported host
 outputs.
 
 ## Repository-Owned Configuration
@@ -63,5 +63,5 @@ flowchart LR
 ```
 
 For the first setup path, start with the
-[GitHub quickstart](/github-quickstart). For supported
-hosts and outputs, see the [support matrix](/support-matrix).
+[GitHub quickstart](/getting-started/github-quickstart). For supported
+hosts and outputs, see the [support matrix](/reference/support-matrix).

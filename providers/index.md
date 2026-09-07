@@ -8,7 +8,7 @@ authenticate, and secure the provider account or CLI with that provider's own
 tools.
 
 For the conceptual difference between providers and agents, see
-[Providers and agents](/providers-and-agents).
+[Providers and agents](/concepts/providers-and-agents).
 
 ## Concepts
 
@@ -48,10 +48,10 @@ specific CI job.
 
 | Provider path | Use when | Setup name | Config example |
 | --- | --- | --- | --- |
-| [Codex](/codex) | You want the default copy-paste onboarding path or an existing Codex auth file in trusted CI. | `codex-api-key` or `codex-subscription` | [`examples/configs/codex-api-key/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/codex-api-key/config.yaml) |
-| [Copilot](/copilot) | Your organization already uses Copilot and can provide a supported Copilot token to CI. | `copilot-github-token` | [`examples/configs/copilot-github-token/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/copilot-github-token/config.yaml) |
-| [OpenCode](/opencode) | You want DiffPal to run through an OpenCode ACP provider already installed and authenticated in CI. | `opencode-acp` | [`examples/configs/opencode-acp/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/opencode-acp/config.yaml) |
-| [Custom ACP CLI](/custom-acp) | You have another CLI that can start an ACP stdio server. | `generic-acp` | [`examples/configs/generic-acp/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/generic-acp/config.yaml) |
+| [Codex](/providers/codex) | You want the default copy-paste onboarding path or an existing Codex auth file in trusted CI. | `codex-api-key` or `codex-subscription` | [`examples/configs/codex-api-key/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/codex-api-key/config.yaml) |
+| [Copilot](/providers/copilot) | Your organization already uses Copilot and can provide a supported Copilot token to CI. | `copilot-github-token` | [`examples/configs/copilot-github-token/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/copilot-github-token/config.yaml) |
+| [OpenCode](/providers/opencode) | You want DiffPal to run through an OpenCode ACP provider already installed and authenticated in CI. | `opencode-acp` | [`examples/configs/opencode-acp/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/opencode-acp/config.yaml) |
+| [Custom ACP CLI](/providers/custom-acp) | You have another CLI that can start an ACP stdio server. | `generic-acp` | [`examples/configs/generic-acp/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/generic-acp/config.yaml) |
 
 These setup names are accepted by:
 
@@ -60,6 +60,6 @@ diffpal init --wizard --setup <setup-name> --platform github
 ```
 
 Use the provider page for install and authentication, then use the
-[Integrations](/integrations) section for host-specific CI syntax.
+[Integrations](/integrations/) section for host-specific CI syntax.
 
 Next step: open the setup page for the provider you plan to authenticate in CI.

@@ -4,7 +4,10 @@ This repository contains the public documentation website for DiffPal.
 
 Production site: https://diffpal.github.io/
 
-Public documentation Markdown lives at the repository root so the organization-level GitHub Pages site publishes at `/`, not under a project path.
+Public documentation Markdown lives at the repository root and in topical
+directories. The directory structure defines public routes such as
+`/getting-started/github-quickstart` and `/reference/cli`. The build also emits
+redirect pages for the former flat routes.
 
 ## Local Development
 
