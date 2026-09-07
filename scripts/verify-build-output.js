@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { legacyRedirects } from './redirects.js'
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const outputRoot = resolve(repositoryRoot, '.vitepress/dist')
@@ -27,8 +28,8 @@ const robotsOutputPath = resolve(outputRoot, 'robots.txt')
 const robotsSourcePath = resolve(repositoryRoot, 'public/robots.txt')
 const llmsOutputPath = resolve(outputRoot, 'llms.txt')
 const llmsSourcePath = resolve(repositoryRoot, 'public/llms.txt')
-const cliOutputPath = resolve(outputRoot, 'cli.html')
-const artifactsOutputPath = resolve(outputRoot, 'artifacts.html')
+const cliOutputPath = resolve(outputRoot, 'reference/cli.html')
+const artifactsOutputPath = resolve(outputRoot, 'reference/artifacts.html')
 
 const [
   sitemapBuffer,
@@ -110,6 +111,18 @@ for (const marker of ['CLI snapshot manifest', 'temporary revision']) {
   }
 }
 
+for (const [from, to] of Object.entries(legacyRedirects)) {
+  const redirectPath = resolve(outputRoot, `${from.slice(1)}.html`)
+  const redirect = (await readRequiredFile(redirectPath)).toString('utf8')
+
+  if (
+    !redirect.includes(`url=${to}`) ||
+    !redirect.includes(`${canonicalOrigin}${to}`)
+  ) {
+    throw new Error(`${redirectPath} is not a valid redirect to ${to}`)
+  }
+}
+
 console.log(
-  'Verified synchronized pages, sitemap.xml, robots.txt, and llms.txt in .vitepress/dist'
+  'Verified nested docs, legacy redirects, sitemap.xml, robots.txt, and llms.txt in .vitepress/dist'
 )

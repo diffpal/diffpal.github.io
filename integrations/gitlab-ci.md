@@ -17,8 +17,8 @@ Use this page to run DiffPal in GitLab merge request pipelines.
 - A provider secret such as `OPENAI_API_KEY`.
 - A platform token path that can publish MR feedback.
 
-See [Shared Setup](/integrations#shared-setup) and
-[Providers](/providers).
+See [Shared Setup](/integrations/#shared-setup) and
+[Providers](/providers/).
 
 ## Required Checkout Behavior
 
@@ -48,13 +48,13 @@ Keep host tokens separate from provider credentials such as `OPENAI_API_KEY`.
 ## Provider Installation And Authentication
 
 Install and authenticate the selected provider before the DiffPal step. Use
-[Providers](/providers) for Codex, Copilot, OpenCode, and custom
+[Providers](/providers/) for Codex, Copilot, OpenCode, and custom
 ACP-compatible CLI setup.
 
 Provider credentials allow the selected third-party provider to process the
 review input. Store them as protected and masked variables, and expose them only
 to trusted pipelines. See
-[Secrets and fork PRs](/secrets-and-fork-prs).
+[Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## Minimal Pipeline
 
@@ -100,7 +100,7 @@ Use `--feedback review` for a summary discussion plus file-level discussions.
 Use `--feedback summary` for summary, status, Code Quality, and SARIF without
 file-level discussions.
 
-See [Feedback Modes](/integrations#feedback-modes).
+See [Feedback Modes](/integrations/#feedback-modes).
 
 ## Merge-Gate Setup
 
@@ -108,8 +108,8 @@ Pass `--gate`. Blocking findings return exit code `10` after publishing
 succeeds and are represented by unresolved blocker discussions plus the
 `DiffPal Review` status.
 
-See [Merge Gates](/integrations#merge-gates) and
-[Exit behavior](/exit-behavior).
+See [Merge Gates](/integrations/#merge-gates) and
+[Exit behavior](/reference/exit-behavior).
 
 ## Fork Or Untrusted-Contribution Behavior
 
@@ -119,7 +119,7 @@ pipeline and examples use same-project conditions, a manual
 `DIFFPAL_TRUSTED_REVIEW` guard, and protected variables for secret-backed
 review.
 
-See [Secrets and fork PRs](/secrets-and-fork-prs).
+See [Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## Expected Results
 
@@ -136,7 +136,7 @@ See [Secrets and fork PRs](/secrets-and-fork-prs).
 - Provider variables are not protected/masked or are unavailable to the job.
 - The pipeline is not a merge request pipeline, so MR context is missing.
 
-See [Common Failures](/integrations#common-failures).
+See [Common Failures](/integrations/#common-failures).
 
 ## Related Examples
 
@@ -144,5 +144,5 @@ See [Common Failures](/integrations#common-failures).
 - [Codex subscription auth](https://github.com/diffpal/diffpal/blob/main/examples/ci/gitlab/codex-subscription.yml)
 - [Copilot token](https://github.com/diffpal/diffpal/blob/main/examples/ci/gitlab/copilot-github-token.yml)
 
-Next step: use [Verify First Review](/verify-first-review)
+Next step: use [Verify First Review](/getting-started/verify-first-review)
 after the first GitLab pipeline completes.

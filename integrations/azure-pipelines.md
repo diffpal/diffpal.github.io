@@ -16,8 +16,8 @@ Use this page to run DiffPal in Azure Pipelines pull request validation.
 - A provider secret such as `OPENAI_API_KEY`.
 - Pipeline access to `System.AccessToken`.
 
-See [Shared Setup](/integrations#shared-setup) and
-[Providers](/providers).
+See [Shared Setup](/integrations/#shared-setup) and
+[Providers](/providers/).
 
 ## Required Checkout Behavior
 
@@ -48,13 +48,13 @@ Keep host tokens separate from provider credentials such as `OPENAI_API_KEY`.
 ## Provider Installation And Authentication
 
 Install and authenticate the selected provider before the DiffPal step. Use
-[Providers](/providers) for Codex, Copilot, OpenCode, and custom
+[Providers](/providers/) for Codex, Copilot, OpenCode, and custom
 ACP-compatible CLI setup.
 
 Provider credentials allow the selected third-party provider to process the
 review input. Store them as secret variables and keep credentialed review steps
 behind trusted-source conditions. See
-[Secrets and fork PRs](/secrets-and-fork-prs).
+[Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## Minimal Pipeline
 
@@ -102,14 +102,36 @@ Use `feedback: review` for status, summary thread, and PR threads. Use
 `feedback: summary` for status and summary thread without file-bound PR
 threads.
 
-See [Feedback Modes](/integrations#feedback-modes).
+See [Feedback Modes](/integrations/#feedback-modes).
+
+## Task Inputs
+
+`DiffPalReview@1` accepts these inputs:
+
+| Input | Default | Purpose |
+| --- | --- | --- |
+| `install` | `true` | Install the DiffPal npm package before review. |
+| `diffpalVersion` | task release default | npm version or dist-tag to install. Pin it for reproducible runs. |
+| `diffpalPath` | `diffpal` | Existing CLI path; a custom path skips automatic installation. |
+| `base`, `head` | Azure PR context | Override the revisions selected for review. |
+| `configDir`, `profile` | empty | Select an additional config root and profile. |
+| `blockOn` | `high` | Severity threshold passed as `--block-on`. |
+| `gate` | `false` | Fail the task when findings meet `blockOn`. |
+| `feedback` | `review` | Select `review` or `summary` feedback. |
+| `explain`, `debug` | `false` | Print resolved Azure context or enable runtime diagnostics. |
+| `language` | empty | Override the review language. |
+| `instructions`, `instructionsFile` | empty | Add inline or file-based review instructions. |
+| `out` | CLI default | Override the findings bundle path. |
+| `repo`, `reviewId` | Azure context | Override deterministic identifiers. |
 
 ## Merge-Gate Setup
 
-Set `gate: true` on `DiffPalReview@1`. Blocking findings fail the task and set
-the Azure PR status to failed.
+Set `gate: true` on `DiffPalReview@1`. The task's `blockOn` input defaults to
+`high` and overrides `diffpal.gate.block_on`; set it explicitly when your
+repository uses another threshold. Matching findings fail the task and set the
+Azure PR status to failed.
 
-See [Merge Gates](/integrations#merge-gates).
+See [Merge Gates](/integrations/#merge-gates).
 
 ## Fork Or Untrusted-Contribution Behavior
 
@@ -120,7 +142,7 @@ condition: and(succeeded(), ne(variables['System.PullRequest.IsFork'], 'True'))
 ```
 
 Use stricter organization-specific trusted-source conditions when needed. See
-[Secrets and fork PRs](/secrets-and-fork-prs).
+[Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## Expected Results
 
@@ -136,7 +158,7 @@ Use stricter organization-specific trusted-source conditions when needed. See
 - `SYSTEM_ACCESSTOKEN` is not passed to the review task.
 - Provider variables are unavailable in fork PR validation.
 
-See [Common Failures](/integrations#common-failures).
+See [Common Failures](/integrations/#common-failures).
 
 ## Related Examples
 
@@ -144,5 +166,5 @@ See [Common Failures](/integrations#common-failures).
 - [Codex subscription auth](https://github.com/diffpal/diffpal/blob/main/examples/ci/azure-pipelines/codex-subscription.yml)
 - [Copilot token](https://github.com/diffpal/diffpal/blob/main/examples/ci/azure-pipelines/copilot-github-token.yml)
 
-Next step: use [Verify First Review](/verify-first-review)
+Next step: use [Verify First Review](/getting-started/verify-first-review)
 after the first Azure Pipelines run completes.

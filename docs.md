@@ -4,70 +4,70 @@ Choose the section that matches what you want to do.
 
 ## Getting Started
 
-Use [Getting Started](/getting-started) for the first successful
+Use [Getting Started](/getting-started/) for the first successful
 review path. Start with the
-[GitHub quickstart](/github-quickstart), then verify the
+[GitHub quickstart](/getting-started/github-quickstart), then verify the
 expected summary, comments, artifacts, and gate behavior with
-[Verify First Review](/verify-first-review). Continue with
-[Next Steps](/next-steps) after the first run works.
+[Verify First Review](/getting-started/verify-first-review). Continue with
+[Next Steps](/getting-started/next-steps) after the first run works.
 
 ## Concepts
 
-Use [Concepts](/concepts) to understand how DiffPal turns pull request
+Use [Concepts](/concepts/) to understand how DiffPal turns pull request
 diffs into structured findings and host-native feedback. The section also
-includes the [comparison guide](/comparison).
+includes the [comparison guide](/concepts/comparison).
 
-- [How DiffPal works](/how-diffpal-works)
-- [Review lifecycle](/review-lifecycle)
-- [Providers and agents](/providers-and-agents)
-- [Findings, feedback, and gates](/findings-feedback-and-gates)
-- [Glossary](/glossary)
+- [How DiffPal works](/concepts/how-diffpal-works)
+- [Review lifecycle](/concepts/review-lifecycle)
+- [Providers and agents](/concepts/providers-and-agents)
+- [Findings, feedback, and gates](/concepts/findings-feedback-and-gates)
 
 ## Integrations
 
-Use [Integrations](/integrations) for CI setup and host-specific
+Use [Integrations](/integrations/) for CI setup and host-specific
 requirements:
 
-- [GitHub Actions](/github-actions)
-- [GitLab CI](/gitlab-ci)
-- [Azure Pipelines](/azure-pipelines)
-- [Custom CI/CD](/custom-ci)
+- [GitHub Actions](/integrations/github-actions)
+- [GitLab CI](/integrations/gitlab-ci)
+- [Azure Pipelines](/integrations/azure-pipelines)
+- [Custom CI/CD](/integrations/custom-ci)
 
 ## Providers
 
-Use [Providers](/providers) to choose Codex, Copilot, OpenCode, or a
+Use [Providers](/providers/) to choose Codex, Copilot, OpenCode, or a
 custom ACP-compatible CLI:
 
-- [Codex](/codex)
-- [Copilot](/copilot)
-- [OpenCode](/opencode)
-- [Custom ACP-compatible CLI](/custom-acp)
+- [Codex](/providers/codex)
+- [Copilot](/providers/copilot)
+- [OpenCode](/providers/opencode)
+- [Custom ACP-compatible CLI](/providers/custom-acp)
 
 ## Guides
 
-Use [Guides](/guides) for operational guidance that spans setup and
+Use [Guides](/guides/) for operational guidance that spans setup and
 reference material:
 
-- [Secrets and fork PRs](/secrets-and-fork-prs)
+- [Secrets and fork PRs](/guides/secrets-and-fork-prs)
 - [Security controls](/security)
 
 ## Reference
 
-Use [Reference](/reference) for stable contracts:
+Use [Reference](/reference/) for stable contracts:
 
-- [Configuration](/configuration)
-- [CLI](/cli)
-- [Findings schema](/findings-schema)
-- [Artifacts](/artifacts)
-- [Exit behavior](/exit-behavior)
-- [Versioning](/versioning)
-- [Support matrix](/support-matrix)
+- [Configuration](/reference/configuration)
+- [CLI](/reference/cli)
+- [Findings schema](/reference/findings-schema)
+- [Artifacts](/reference/artifacts)
+- [Exit behavior](/reference/exit-behavior)
+- [Versioning](/reference/versioning)
+- [Support matrix](/reference/support-matrix)
+- [Glossary](/reference/glossary)
 
 ## Help
 
-Use [Help](/help) for operational fixes, including
-[troubleshooting](/troubleshooting) for missing comments, token failures,
-fork PRs, and incomplete diffs. Use the [FAQ](/faq) for short answers
+Use [Help](/help/) for operational fixes, including
+[troubleshooting](/help/troubleshooting) for missing comments, token failures,
+fork PRs, and incomplete diffs. Use the [FAQ](/help/faq) for short answers
 to common product, provider, CI, and artifact questions.
 
 ## Examples

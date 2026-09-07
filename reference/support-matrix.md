@@ -6,10 +6,10 @@ This page lists the supported public surface confirmed by the repository.
 
 | Host / mode | Native publisher | Stable status | Guide |
 | --- | --- | --- | --- |
-| GitHub pull requests | GitHub publisher | Stable public surface | [GitHub Actions](/github-actions) |
-| GitLab merge requests | GitLab publisher | Stable public surface | [GitLab CI](/gitlab-ci) |
-| Azure DevOps pull requests | Azure DevOps publisher | Stable public surface | [Azure Pipelines](/azure-pipelines) |
-| Custom CI/CD with unsupported code host | No native publisher | Artifact-only support | [Custom CI/CD](/custom-ci) |
+| GitHub pull requests | GitHub publisher | Stable public surface | [GitHub Actions](/integrations/github-actions) |
+| GitLab merge requests | GitLab publisher | Stable public surface | [GitLab CI](/integrations/gitlab-ci) |
+| Azure DevOps pull requests | Azure DevOps publisher | Stable public surface | [Azure Pipelines](/integrations/azure-pipelines) |
+| Custom CI/CD with unsupported code host | No native publisher | Artifact-only support | [Custom CI/CD](/integrations/custom-ci) |
 
 ## Feedback Surfaces
 
@@ -44,6 +44,8 @@ Supported runtime provider types:
 | `aistudio` | Supported config type | Hosted API config type; use when explicitly configured. |
 | `gemini_acp` | Supported runtime type | No dedicated public setup page in this docs set. |
 | `claude_code_acp` | Supported runtime type | No dedicated public setup page in this docs set. |
+| `claude_acp` | Compatibility alias | Uses the `claude_code_acp` configuration block. |
+| `grok_acp` | Supported runtime type | No dedicated public setup page in this docs set. |
 | `pool` | Supported runtime type | Ordered provider failover config. |
 
 No provider account is managed by DiffPal. Provider authentication belongs to

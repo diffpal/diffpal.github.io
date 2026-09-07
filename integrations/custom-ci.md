@@ -59,7 +59,7 @@ running DiffPal.
 
 This vendor-neutral shell example performs an artifact-only review. It uses the
 current CLI command and flags for `diffpal review local`. The provider setup
-shown is the Codex API-key path; use [Providers](/providers) to
+shown is the Codex API-key path; use [Providers](/providers/) to
 replace those install and authentication commands for another provider.
 
 ```bash
@@ -143,7 +143,7 @@ The portable artifact-only example should create
 `.artifacts/diffpal/findings.json` and a captured
 `.artifacts/diffpal/summary.md`. Native host commands should additionally
 publish the feedback surfaces listed in the
-[support matrix](/support-matrix).
+[support matrix](/reference/support-matrix).
 
 ## Security
 
@@ -156,7 +156,7 @@ maintainer-controlled rerun after reviewing the submitted workflow changes.
 Artifact-only review still runs a provider-backed review, so it must not receive
 provider credentials in a job that executes untrusted fork code.
 
-Use [Secrets and fork PRs](/secrets-and-fork-prs) for the full
+Use [Secrets and fork PRs](/guides/secrets-and-fork-prs) for the full
 credential and fork PR guide.
 
 ## Failure Handling
@@ -184,4 +184,4 @@ native comments, discussions, threads, checks, statuses, or branch-policy
 signals for that host.
 
 Next step: upload `.artifacts/diffpal/` from your CI job and verify the first
-run with [Verify First Review](/verify-first-review).
+run with [Verify First Review](/getting-started/verify-first-review).

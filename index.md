@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Get started
-      link: /github-quickstart
+      link: /getting-started/github-quickstart
     - theme: alt
       text: Read the docs
       link: /docs
@@ -77,6 +77,6 @@ DiffPal resolves the PR or MR review scope and sends review input to the provide
 
 ## Start Reviewing
 
-- [Start with GitHub Actions](/github-quickstart)
-- [Use another CI/CD system](/custom-ci)
-- [Bring your own agent](/providers)
+- [Start with GitHub Actions](/getting-started/github-quickstart)
+- [Use another CI/CD system](/integrations/custom-ci)
+- [Bring your own agent](/providers/)

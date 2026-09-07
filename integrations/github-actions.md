@@ -1,7 +1,7 @@
 # GitHub Actions
 
 Use this page to run DiffPal in GitHub Actions. For the shortest first setup,
-start with the [GitHub quickstart](/github-quickstart).
+start with the [GitHub quickstart](/getting-started/github-quickstart).
 
 ## Supported Outputs
 
@@ -17,8 +17,8 @@ start with the [GitHub quickstart](/github-quickstart).
 - A committed DiffPal config at `.config/diffpal/config.yaml`.
 - A provider secret such as `OPENAI_API_KEY`.
 
-See [Shared Setup](/integrations#shared-setup) and
-[Providers](/providers).
+See [Shared Setup](/integrations/#shared-setup) and
+[Providers](/providers/).
 
 ## Required Checkout Behavior
 
@@ -47,13 +47,13 @@ credentials such as `OPENAI_API_KEY`.
 ## Provider Installation And Authentication
 
 Install and authenticate the selected provider before the DiffPal step. Use
-[Providers](/providers) for Codex, Copilot, OpenCode, and custom
+[Providers](/providers/) for Codex, Copilot, OpenCode, and custom
 ACP-compatible CLI setup.
 
 Provider credentials allow the selected third-party provider to process the
 review input. Store them as GitHub secrets and keep the credentialed review job
 restricted to trusted pull requests. See
-[Secrets and fork PRs](/secrets-and-fork-prs).
+[Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## Minimal Pipeline
 
@@ -101,21 +101,34 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Retain DiffPal artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diffpal-review
+          path: .artifacts/diffpal/
+          if-no-files-found: warn
 ```
+
+For the complete wrapper input contract, including version pinning, output
+paths, review-channel isolation, and instruction overrides, see the
+[GitHub Action input reference](https://github.com/diffpal/action#inputs).
 
 ## Feedback Modes
 
 Use `feedback: review` for a PR summary plus file-level comments. Use
 `feedback: summary` for the summary and non-file artifacts only.
 
-See [Feedback Modes](/integrations#feedback-modes).
+See [Feedback Modes](/integrations/#feedback-modes).
 
 ## Merge-Gate Setup
 
-Set `gate: true` on `diffpal/action@v1`. Blocking findings fail the workflow
-when they meet `diffpal.gate.block_on`.
+Set `gate: true` on `diffpal/action@v1`. The action's `block-on` input defaults
+to `high` and overrides `diffpal.gate.block_on`; set it explicitly when your
+repository uses another threshold. Matching findings fail the workflow.
 
-See [Merge Gates](/integrations#merge-gates).
+See [Merge Gates](/integrations/#merge-gates).
 
 ## Fork Or Untrusted-Contribution Behavior
 
@@ -126,7 +139,7 @@ secret-backed review to same-repository PRs with:
 if: ${{ !github.event.pull_request.draft && github.event.pull_request.head.repo.full_name == github.repository }}
 ```
 
-See [Secrets and fork PRs](/secrets-and-fork-prs).
+See [Secrets and fork PRs](/guides/secrets-and-fork-prs).
 
 ## Expected Results
 
@@ -144,7 +157,7 @@ See [Secrets and fork PRs](/secrets-and-fork-prs).
 - The PR is from a fork, so the same-repository guard skipped secret-backed
   review.
 
-See [Common Failures](/integrations#common-failures).
+See [Common Failures](/integrations/#common-failures).
 
 ## Related Examples
 
@@ -152,5 +165,5 @@ See [Common Failures](/integrations#common-failures).
 - [Codex subscription auth](https://github.com/diffpal/diffpal/blob/main/examples/ci/github-actions/codex-subscription.yml)
 - [Copilot token](https://github.com/diffpal/diffpal/blob/main/examples/ci/github-actions/copilot-github-token.yml)
 
-Next step: use [Verify First Review](/verify-first-review)
+Next step: use [Verify First Review](/getting-started/verify-first-review)
 after the first GitHub Actions run completes.

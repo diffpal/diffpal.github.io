@@ -4,8 +4,8 @@ DiffPal reads repository configuration from `.config/diffpal/config.yaml`.
 The file is YAML, uses top-level `version: v1`, and keeps review policy with
 the repository.
 
-Task-oriented setup lives in [Getting Started](/getting-started),
-[Providers](/providers), and [Integrations](/integrations).
+Task-oriented setup lives in [Getting Started](/getting-started/),
+[Providers](/providers/), and [Integrations](/integrations/).
 
 ## Loading And Overrides
 
@@ -71,7 +71,7 @@ profiles:
 | --- | --- | --- | --- |
 | `version` | Optional | `v1` from defaults | empty or `v1` |
 | `runtime.providers` | Required for review | empty | map of provider IDs |
-| `runtime.providers.<id>.type` | Required | none | `generic_acp`, `gemini_acp`, `codex_acp`, `opencode_acp`, `copilot_acp`, `claude_code_acp`, `openai`, `aistudio`, `pool` |
+| `runtime.providers.<id>.type` | Required | none | `generic_acp`, `gemini_acp`, `codex_acp`, `opencode_acp`, `copilot_acp`, `claude_code_acp`, `claude_acp`, `grok_acp`, `openai`, `aistudio`, `pool` |
 | `diffpal.provider` | Required | empty | provider ID present in `runtime.providers` |
 | `diffpal.gate.block_on` | Optional | `high` | `low`, `medium`, `high`, `critical` |
 | `diffpal.review.language` | Optional | `en` | any single-line language value |
@@ -103,7 +103,7 @@ Common provider fields:
 | --- | --- | --- |
 | `mcp_servers` | all providers | IDs from `runtime.mcp_servers` attached to this provider. |
 | `system_instructions` | all providers | Provider-level instructions applied by the runtime. |
-| `generic_acp`, `gemini_acp`, `codex_acp`, `opencode_acp`, `copilot_acp`, `claude_code_acp` | ACP providers | ACP runtime block. |
+| `generic_acp`, `gemini_acp`, `codex_acp`, `opencode_acp`, `copilot_acp`, `claude_code_acp`, `grok_acp` | ACP providers | ACP runtime block. `claude_acp` is a compatibility alias that also uses `claude_code_acp`. |
 | `openai`, `aistudio` | hosted API providers | Hosted API runtime block. |
 | `pool` | pool provider | Ordered failover member list. |
 
@@ -116,6 +116,7 @@ ACP runtime block fields:
 | `model` | Optional | provider-specific | non-blank string |
 | `reasoning_effort` | Optional | provider-specific | `minimal`, `low`, `medium`, `high`, `xhigh` |
 | `mode` | Optional | provider-specific | non-blank string |
+| `bridge_version` | Optional | runtime default | Codex ACP bridge version or npm dist-tag; used only by `codex_acp`. |
 
 Hosted API block fields:
 
@@ -131,7 +132,7 @@ Pool block fields:
 | `members` | Optional | empty | Provider IDs in ordered failover order. |
 
 Provider installation and authentication are documented in
-[Providers](/providers).
+[Providers](/providers/).
 
 ## MCP Servers
 
@@ -177,7 +178,7 @@ Keep MCP credentials in CI secrets.
 | `diffpal.review.timeout` | `5m` | Per-attempt provider review timeout. |
 
 `--language`, `--instructions`, and `--instructions-file` can override or
-append instructions for one CLI run. See [CLI](/cli).
+append instructions for one CLI run. See [CLI](/reference/cli).
 
 ## Review Contract And Severity Matrix
 
@@ -211,7 +212,7 @@ diffpal:
 
 `block_on` sets the minimum severity that counts as blocking. The allowed values
 are `low`, `medium`, `high`, and `critical`. Use `--gate` in CI to make
-blocking findings fail the process. See [Exit behavior](/exit-behavior).
+blocking findings fail the process. See [Exit behavior](/reference/exit-behavior).
 
 ## Platform Auth
 
@@ -226,8 +227,11 @@ preferred.
 | Azure DevOps | `diffpal.platforms.azure.auth.system_access_token` | `SYSTEM_ACCESSTOKEN` |
 | Azure DevOps | `diffpal.platforms.azure.auth.pat` | `AZURE_DEVOPS_EXT_PAT` |
 
-Blank auth values fail validation. Missing optional config values are allowed
-when the matching environment variable will be present in CI.
+Whitespace-only auth values fail validation. Empty or omitted config values are
+allowed when the matching environment variable is present in CI. A non-empty
+config token takes precedence over its environment-variable counterpart. For
+GitLab, an API token takes precedence over a job token; for Azure, the system
+access token takes precedence over a PAT.
 
 ## Profiles
 

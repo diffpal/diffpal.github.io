@@ -19,6 +19,24 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://diffpal.github.io'
   },
+  transformHead({ page, pageData }) {
+    if (pageData.isNotFound) {
+      return []
+    }
+
+    const route = `/${page.replace(/index\.md$/, '').replace(/\.md$/, '')}`
+    const canonicalURL = `https://diffpal.github.io${route}`
+    const socialTitle = pageData.title
+      ? `${pageData.title} | ${siteTitle}`
+      : siteTitle
+
+    return [
+      ['link', { rel: 'canonical', href: canonicalURL }],
+      ['meta', { property: 'og:title', content: socialTitle }],
+      ['meta', { property: 'og:url', content: canonicalURL }],
+      ['meta', { name: 'twitter:title', content: socialTitle }]
+    ]
+  },
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/logo-mark.png' }],
     [
@@ -38,11 +56,8 @@ gtag('config', '${googleAnalyticsId}');`
     ],
     ['meta', { name: 'theme-color', content: '#2563eb' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: siteTitle }],
     ['meta', { property: 'og:description', content: siteDescription }],
-    ['meta', { property: 'og:url', content: 'https://diffpal.github.io/' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
-    ['meta', { name: 'twitter:title', content: siteTitle }],
     ['meta', { name: 'twitter:description', content: siteDescription }]
   ],
   themeConfig: {
@@ -58,83 +73,93 @@ gtag('config', '${googleAnalyticsId}');`
       { icon: 'github', link: mainRepo }
     ],
     nav: [
-      { text: 'Home', link: '/' },
       { text: 'Docs', link: '/docs' },
-      { text: 'Live Demo', link: demoReview },
-      { text: 'Examples', link: examplesBase },
-      { text: 'Security', link: '/security' },
-      { text: 'Changelog', link: changelog },
-      { text: 'GitHub', link: mainRepo }
+      { text: 'Integrations', link: '/integrations/' },
+      { text: 'Providers', link: '/providers/' },
+      {
+        text: 'Resources',
+        items: [
+          { text: 'Live review demo', link: demoReview },
+          { text: 'Examples', link: examplesBase },
+          { text: 'Changelog', link: changelog }
+        ]
+      }
     ],
     sidebar: [
       {
         text: 'Get started',
+        link: '/getting-started/',
         items: [
-          { text: 'GitHub quickstart', link: '/github-quickstart' },
-          { text: 'Custom CI/CD', link: '/custom-ci' },
-          { text: 'Bring your own agent', link: '/providers' },
-          { text: 'Configuration reference', link: '/configuration' },
-          { text: 'Troubleshooting', link: '/troubleshooting' }
-        ]
-      },
-      {
-        text: 'Concepts',
-        items: [
-          { text: 'How DiffPal works', link: '/how-diffpal-works' },
-          { text: 'Review lifecycle', link: '/review-lifecycle' },
-          { text: 'Findings, feedback, and gates', link: '/findings-feedback-and-gates' },
-          { text: 'Providers and agents', link: '/providers-and-agents' },
-          { text: 'Comparison', link: '/comparison' },
-          { text: 'Glossary', link: '/glossary' }
+          { text: 'GitHub quickstart', link: '/getting-started/github-quickstart' },
+          { text: 'Verify your first review', link: '/getting-started/verify-first-review' },
+          { text: 'Choose next steps', link: '/getting-started/next-steps' }
         ]
       },
       {
         text: 'Integrations',
+        link: '/integrations/',
+        collapsed: true,
         items: [
-          { text: 'Overview', link: '/integrations' },
-          { text: 'GitHub Actions', link: '/github-actions' },
-          { text: 'GitLab CI', link: '/gitlab-ci' },
-          { text: 'Azure Pipelines', link: '/azure-pipelines' },
-          { text: 'Custom CI/CD', link: '/custom-ci' }
+          { text: 'GitHub Actions', link: '/integrations/github-actions' },
+          { text: 'GitLab CI', link: '/integrations/gitlab-ci' },
+          { text: 'Azure Pipelines', link: '/integrations/azure-pipelines' },
+          { text: 'Custom CI/CD', link: '/integrations/custom-ci' }
         ]
       },
       {
         text: 'Providers',
+        link: '/providers/',
+        collapsed: true,
         items: [
-          { text: 'Provider recipes', link: '/providers' },
-          { text: 'Provider model', link: '/providers-and-agents' },
-          { text: 'Codex', link: '/codex' },
-          { text: 'Copilot', link: '/copilot' },
-          { text: 'OpenCode', link: '/opencode' },
-          { text: 'Generic ACP CLI', link: '/custom-acp' }
+          { text: 'Codex', link: '/providers/codex' },
+          { text: 'Copilot', link: '/providers/copilot' },
+          { text: 'OpenCode', link: '/providers/opencode' },
+          { text: 'Custom ACP-compatible CLI', link: '/providers/custom-acp' }
         ]
       },
       {
         text: 'Guides',
+        link: '/guides/',
+        collapsed: true,
         items: [
-          { text: 'Verify first review', link: '/verify-first-review' },
-          { text: 'Next steps', link: '/next-steps' },
-          { text: 'Secrets and fork PRs', link: '/secrets-and-fork-prs' },
-          { text: 'Examples gallery', link: examplesBase }
+          { text: 'Secrets and fork PRs', link: '/guides/secrets-and-fork-prs' },
+          { text: 'Security controls', link: '/security' }
+        ]
+      },
+      {
+        text: 'Concepts',
+        link: '/concepts/',
+        collapsed: true,
+        items: [
+          { text: 'How DiffPal works', link: '/concepts/how-diffpal-works' },
+          { text: 'Review lifecycle', link: '/concepts/review-lifecycle' },
+          { text: 'Findings, feedback, and gates', link: '/concepts/findings-feedback-and-gates' },
+          { text: 'Providers and agents', link: '/concepts/providers-and-agents' },
+          { text: 'Comparison', link: '/concepts/comparison' }
         ]
       },
       {
         text: 'Reference',
+        link: '/reference/',
+        collapsed: true,
         items: [
-          { text: 'Configuration', link: '/configuration' },
-          { text: 'CLI', link: '/cli' },
-          { text: 'Artifacts', link: '/artifacts' },
-          { text: 'Findings schema', link: '/findings-schema' },
-          { text: 'Support matrix', link: '/support-matrix' },
-          { text: 'Exit behavior', link: '/exit-behavior' },
-          { text: 'Versioning', link: '/versioning' }
+          { text: 'Configuration', link: '/reference/configuration' },
+          { text: 'CLI', link: '/reference/cli' },
+          { text: 'Artifacts', link: '/reference/artifacts' },
+          { text: 'Findings schema', link: '/reference/findings-schema' },
+          { text: 'Support matrix', link: '/reference/support-matrix' },
+          { text: 'Exit behavior', link: '/reference/exit-behavior' },
+          { text: 'Versioning', link: '/reference/versioning' },
+          { text: 'Glossary', link: '/reference/glossary' }
         ]
       },
       {
         text: 'Help',
+        link: '/help/',
+        collapsed: true,
         items: [
-          { text: 'Troubleshooting', link: '/troubleshooting' },
-          { text: 'FAQ', link: '/faq' }
+          { text: 'Troubleshooting', link: '/help/troubleshooting' },
+          { text: 'FAQ', link: '/help/faq' }
         ]
       }
     ],

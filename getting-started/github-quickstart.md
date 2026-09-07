@@ -6,7 +6,7 @@ review.
 This path uses the Codex API-key recipe because it is a complete copy-paste
 GitHub Actions setup. Codex is not the product boundary; other supported
 providers and ACP agents can use the same DiffPal workflow.
-See [Codex Provider](/codex) for provider-specific setup
+See [Codex Provider](/providers/codex) for provider-specific setup
 details.
 
 ## 1. Create A Setup Branch
@@ -37,7 +37,7 @@ gh secret set OPENAI_API_KEY
 
 Keep secret-backed DiffPal review limited to same-repository pull requests and
 let forks run no-secret CI only. See
-[Secrets and fork PRs](/secrets-and-fork-prs) for the security
+[Secrets and fork PRs](/guides/secrets-and-fork-prs) for the security
 rationale.
 
 ## 3. Initialize Config
@@ -55,17 +55,19 @@ are preserved unless you pass `--force`.
 Commit the generated config:
 
 ```bash
-git add .config/diffpal/config.yaml .config/diffpal/.gitignore
+git add .config/diffpal/config.yaml .config/diffpal/templates .diffpalignore
 git commit -m "chore: add diffpal config"
 ```
 
 ## 4. Install Workflow
 
-Copy the GitHub Actions example:
+Download the GitHub Actions example from the DiffPal repository:
 
 ```bash
 mkdir -p .github/workflows
-cp examples/ci/github-actions/codex-api-key.yml .github/workflows/diffpal.yml
+curl -fsSL \
+  https://raw.githubusercontent.com/diffpal/diffpal/main/examples/ci/github-actions/codex-api-key.yml \
+  -o .github/workflows/diffpal.yml
 ```
 
 Commit the workflow:
@@ -103,5 +105,5 @@ If the run has no actionable findings, the review summary and artifacts should
 still appear. If setup, authentication, review scope resolution, or publishing
 fails, the workflow should fail because the review is incomplete.
 
-Use [Verify First Review](/verify-first-review) to check the first run, then
-continue with [Next Steps](/next-steps).
+Use [Verify First Review](/getting-started/verify-first-review) to check the first run, then
+continue with [Next Steps](/getting-started/next-steps).
