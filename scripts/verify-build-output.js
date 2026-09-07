@@ -27,13 +27,25 @@ const robotsOutputPath = resolve(outputRoot, 'robots.txt')
 const robotsSourcePath = resolve(repositoryRoot, 'public/robots.txt')
 const llmsOutputPath = resolve(outputRoot, 'llms.txt')
 const llmsSourcePath = resolve(repositoryRoot, 'public/llms.txt')
+const cliOutputPath = resolve(outputRoot, 'cli.html')
+const artifactsOutputPath = resolve(outputRoot, 'artifacts.html')
 
-const [sitemapBuffer, robotsOutput, robotsSource, llmsOutput, llmsSource] = await Promise.all([
+const [
+  sitemapBuffer,
+  robotsOutput,
+  robotsSource,
+  llmsOutput,
+  llmsSource,
+  cliOutput,
+  artifactsOutput
+] = await Promise.all([
   readRequiredFile(sitemapPath),
   readRequiredFile(robotsOutputPath),
   readRequiredFile(robotsSourcePath),
   readRequiredFile(llmsOutputPath),
-  readRequiredFile(llmsSourcePath)
+  readRequiredFile(llmsSourcePath),
+  readRequiredFile(cliOutputPath),
+  readRequiredFile(artifactsOutputPath)
 ])
 
 if (!robotsOutput.equals(robotsSource)) {
@@ -75,4 +87,29 @@ for (const location of locations) {
   }
 }
 
-console.log('Verified sitemap.xml, robots.txt, and llms.txt in .vitepress/dist')
+const cli = cliOutput.toString('utf8')
+const artifacts = artifactsOutput.toString('utf8')
+
+for (const marker of [
+  'review uncommitted',
+  'human-readable text on stderr',
+  'This command never publishes to a host.'
+]) {
+  if (!cli.includes(marker)) {
+    throw new Error(`${cliOutputPath} does not contain required content: ${marker}`)
+  }
+}
+
+if (cli.includes('<code>--state</code>')) {
+  throw new Error(`${cliOutputPath} contains the obsolete --state option`)
+}
+
+for (const marker of ['CLI snapshot manifest', 'temporary revision']) {
+  if (!artifacts.includes(marker)) {
+    throw new Error(`${artifactsOutputPath} does not contain required content: ${marker}`)
+  }
+}
+
+console.log(
+  'Verified synchronized pages, sitemap.xml, robots.txt, and llms.txt in .vitepress/dist'
+)
