@@ -34,12 +34,13 @@ requirements:
 
 ## Providers
 
-Use [Providers](/providers/) to choose Codex, Copilot, OpenCode, or a
-custom ACP-compatible CLI:
+Use [Providers](/providers/) to choose Codex, Copilot, OpenCode, an ACP Registry
+agent, or a custom ACP-compatible CLI:
 
 - [Codex](/providers/codex)
 - [Copilot](/providers/copilot)
 - [OpenCode](/providers/opencode)
+- [ACP Registry agent](/providers/acp-registry)
 - [Custom ACP-compatible CLI](/providers/custom-acp)
 
 ## Guides

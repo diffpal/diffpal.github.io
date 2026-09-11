@@ -114,6 +114,7 @@ gtag('config', '${googleAnalyticsId}');`
           { text: 'Codex', link: '/providers/codex' },
           { text: 'Copilot', link: '/providers/copilot' },
           { text: 'OpenCode', link: '/providers/opencode' },
+          { text: 'ACP Registry agents', link: '/providers/acp-registry' },
           { text: 'Custom ACP-compatible CLI', link: '/providers/custom-acp' }
         ]
       },

@@ -31,6 +31,7 @@
 - [Codex Provider](/providers/codex): Use Codex through the default onboarding path.
 - [Copilot Provider](/providers/copilot): Use Copilot with a supported token in CI.
 - [OpenCode Provider](/providers/opencode): Use OpenCode as an ACP provider.
+- [ACP Registry Agents](/providers/acp-registry): Run an official ACP Registry entry through Norma Runtime.
 - [Custom ACP-Compatible CLI](/providers/custom-acp): Connect another ACP stdio server.
 
 ## Reference
