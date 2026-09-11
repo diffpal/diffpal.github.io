@@ -23,6 +23,8 @@ hero:
       link: https://github.com/diffpal/diffpal
 ---
 
+[![Product Hunt](https://img.shields.io/badge/Product%20Hunt-DA552F?logo=producthunt&logoColor=white)](https://www.producthunt.com/products/diffpal)
+
 ## Outcome Preview
 
 After a successful review, DiffPal publishes the same core outputs across supported hosts:
