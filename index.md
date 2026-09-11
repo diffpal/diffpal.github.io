@@ -23,7 +23,7 @@ hero:
       link: https://github.com/diffpal/diffpal
 ---
 
-[![Product Hunt](https://img.shields.io/badge/Product%20Hunt-DA552F?logo=producthunt&logoColor=white)](https://www.producthunt.com/products/diffpal)
+<a href="https://www.producthunt.com/products/diffpal/reviews/new?utm_source=badge-diffpal&amp;utm_medium=badge" target="_blank" rel="noopener noreferrer"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1314878&amp;theme=neutral" alt="DiffPal - Open-source AI pull request review that runs in your CI | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 ## Outcome Preview
 
