@@ -7,7 +7,9 @@ Use this page after your first DiffPal review is working.
 Switch providers by changing the selected `runtime.providers` entry and the
 matching CI install/authentication step. Start with the
 [Providers](/providers/) section or use
-[Custom ACP-Compatible CLI](/providers/custom-acp) for a custom agent.
+[ACP Registry Agents](/providers/acp-registry) for an official registry entry,
+or [Custom ACP-Compatible CLI](/providers/custom-acp) for a custom agent
+command.
 
 ## Enable Review Comments
 

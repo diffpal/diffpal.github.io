@@ -51,9 +51,10 @@ specific CI job.
 | [Codex](/providers/codex) | You want the default copy-paste onboarding path or an existing Codex auth file in trusted CI. | `codex-api-key` or `codex-subscription` | [`examples/configs/codex-api-key/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/codex-api-key/config.yaml) |
 | [Copilot](/providers/copilot) | Your organization already uses Copilot and can provide a supported Copilot token to CI. | `copilot-github-token` | [`examples/configs/copilot-github-token/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/copilot-github-token/config.yaml) |
 | [OpenCode](/providers/opencode) | You want DiffPal to run through an OpenCode ACP provider already installed and authenticated in CI. | `opencode-acp` | [`examples/configs/opencode-acp/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/opencode-acp/config.yaml) |
+| [ACP Registry agents](/providers/acp-registry) | You want Norma Runtime to resolve an agent published in the official ACP Registry. | Manual config | [`examples/configs/acp-registry/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/acp-registry/config.yaml) |
 | [Custom ACP CLI](/providers/custom-acp) | You have another CLI that can start an ACP stdio server. | `generic-acp` | [`examples/configs/generic-acp/config.yaml`](https://github.com/diffpal/diffpal/blob/main/examples/configs/generic-acp/config.yaml) |
 
-These setup names are accepted by:
+Setup names other than Manual config are accepted by:
 
 ```bash
 diffpal init --wizard --setup <setup-name> --platform github
