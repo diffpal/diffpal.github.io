@@ -2,6 +2,16 @@
 
 Choose the section that matches what you want to do.
 
+## Related project: LintPal
+
+[LintPal](https://github.com/diffpal/lintpal) is the rule-focused member of
+the DiffPal family. It checks committed changes against repository-owned
+Markdown requirements. DiffPal provides broader AI pull-request review across
+supported code hosts. The tools have separate CLIs and share the findings v5
+report format. See the
+[LintPal documentation](https://github.com/diffpal/lintpal/blob/main/docs/index.md)
+for setup and rule authoring.
+
 ## Getting Started
 
 Use [Getting Started](/getting-started/) for the first successful
