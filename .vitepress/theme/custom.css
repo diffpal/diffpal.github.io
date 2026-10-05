@@ -28,3 +28,28 @@
 .VPHome .VPHero .tagline {
   max-width: 680px;
 }
+
+.VPHome .product-hunt-badge {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.VPHome .product-hunt-badge a {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.VPHome .product-hunt-badge img {
+  display: block;
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 960px) {
+  .VPHome .product-hunt-badge {
+    justify-content: flex-start;
+  }
+}
