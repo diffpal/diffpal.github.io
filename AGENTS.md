@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository publishes the DiffPal documentation site at `https://diffpal.github.io/` using VitePress. Public documentation Markdown lives at the repository root and in topic directories such as `getting-started/`, `integrations/`, and `reference/`. Keep `index.md` and `docs.md` at the root; do not add a `docs/` directory.
+This repository publishes the DiffPal documentation site at `https://diffpal.metalagman.dev/` using VitePress and Cloudflare Workers. Public documentation Markdown lives at the repository root and in topic directories such as `getting-started/`, `integrations/`, and `reference/`. Keep `index.md` and `docs.md` at the root; do not add a `docs/` directory.
 
 VitePress configuration lives in `.vitepress/config.mts`. Theme customizations are in `.vitepress/theme/index.ts` and `.vitepress/theme/custom.css`. Static assets live in `public/`, currently `public/favicon.svg`. GitHub Actions workflows live in `.github/workflows/`.
 
@@ -48,7 +48,7 @@ Keep CSS restrained and scoped to `.vitepress/theme/custom.css`. Use TypeScript/
 
 ## Testing Guidelines
 
-There is no separate unit test suite. Treat `npm run docs:build` as the required validation gate. Before publishing substantial documentation changes, also run `npm run docs:preview` and verify important routes such as `/`, `/getting-started/github-quickstart`, and `/help/troubleshooting`.
+Run `npm run check` to build the site and verify deployment packaging and legacy redirects. Before publishing substantial documentation changes, also run `npm run docs:preview` and verify important routes such as `/`, `/getting-started/github-quickstart`, and `/help/troubleshooting`. Package production releases with `npm run artifact` and verify deployed routes with `BASE_URL=<site-origin> npm run smoke:workers`.
 
 ## Commit & Pull Request Guidelines
 
@@ -62,4 +62,4 @@ Prefer subjects such as `docs: update quickstart` or `fix: correct platform link
 
 ## Security & Configuration Tips
 
-Do not commit provider secrets, tokens, or generated build output. The generated site is written to `.vitepress/dist` and should remain ignored. GitHub Pages deploys through `.github/workflows/pages.yml` from the VitePress build artifact.
+Do not commit provider secrets, tokens, or generated build output. The generated site is written to `.vitepress/dist` and should remain ignored, as should immutable releases in `.artifacts`. Cloudflare Workers deployments and custom domain ownership are managed by Terraform in the private `home-lab` repository. Review saved plans before applying them; do not deploy independently with Wrangler. GitHub Pages deploys only legacy redirects through `.github/workflows/pages.yml`.

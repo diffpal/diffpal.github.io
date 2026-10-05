@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://diffpal.github.io/sitemap.xml
+Sitemap: https://diffpal.metalagman.dev/sitemap.xml

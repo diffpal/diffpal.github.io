@@ -6,7 +6,11 @@
     "docs:dev": "vitepress .",
     "docs:build": "vitepress build . && node scripts/generate-redirects.js",
     "docs:preview": "vitepress preview .",
-    "check": "npm run docs:build && node scripts/verify-build-output.js"
+    "check": "npm run docs:build && node scripts/verify-build-output.js && node --test scripts/release-artifact.test.mjs scripts/generate-pages-redirects.test.mjs",
+    "docs:pages-redirects": "node scripts/generate-pages-redirects.js",
+    "artifact": "npm run check && node scripts/release-artifact.mjs build",
+    "artifact:verify": "node scripts/release-artifact.mjs verify",
+    "smoke:workers": "node scripts/smoke-workers.mjs"
   },
   "devDependencies": {
     "vitepress": "1.6.4"

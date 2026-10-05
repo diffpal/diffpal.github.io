@@ -5,7 +5,7 @@ import { legacyRedirects } from './redirects.js'
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const outputRoot = resolve(repositoryRoot, '.vitepress/dist')
-const canonicalOrigin = 'https://diffpal.github.io'
+const canonicalOrigin = 'https://diffpal.metalagman.dev'
 
 async function readRequiredFile(path) {
   let contents
@@ -85,6 +85,20 @@ for (const location of locations) {
     throw new Error(
       `${sitemapPath} contains a non-canonical location: ${location}`
     )
+  }
+
+  if (url.pathname !== '/' && url.pathname.endsWith('/')) {
+    throw new Error(`${sitemapPath} contains a redirected trailing-slash URL: ${location}`)
+  }
+
+  const route = url.pathname.slice(1)
+  const page = await readFile(resolve(outputRoot, route ? `${route}.html` : 'index.html'))
+    .catch((error) => {
+      if (error.code !== 'ENOENT') throw error
+      return readRequiredFile(resolve(outputRoot, route, 'index.html'))
+    })
+  if (!page.toString('utf8').includes(`rel="canonical" href="${location}"`)) {
+    throw new Error(`Page canonical does not match its sitemap URL: ${location}`)
   }
 }
 

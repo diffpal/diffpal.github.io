@@ -1,4 +1,4 @@
-name: Deploy Pages
+name: Deploy legacy Pages redirects
 
 on:
   push:
@@ -37,10 +37,13 @@ jobs:
       - name: Build
         run: npm run check
 
+      - name: Generate redirects to Cloudflare Workers
+        run: npm run docs:pages-redirects
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: .vitepress/dist
+          path: .vitepress/pages-redirects
 
   deploy:
     environment:
