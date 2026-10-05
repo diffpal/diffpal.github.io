@@ -5,7 +5,7 @@ import { legacyRedirects } from './redirects.js'
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const outputRoot = resolve(repositoryRoot, '.vitepress/dist')
-const canonicalOrigin = 'https://diffpal.github.io'
+const canonicalOrigin = 'https://diffpal.metalagman.dev'
 
 await Promise.all(
   Object.entries(legacyRedirects).map(async ([from, to]) => {

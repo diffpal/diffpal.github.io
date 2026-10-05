@@ -17,15 +17,19 @@ export default defineConfig({
   lastUpdated: true,
   srcExclude: ['README.md', 'AGENTS.md'],
   sitemap: {
-    hostname: 'https://diffpal.github.io'
+    hostname: 'https://diffpal.metalagman.dev',
+    transformItems: (items) => items.map((item) => ({
+      ...item,
+      url: item.url.replace(/\/$/, '')
+    }))
   },
   transformHead({ page, pageData }) {
     if (pageData.isNotFound) {
       return []
     }
 
-    const route = `/${page.replace(/index\.md$/, '').replace(/\.md$/, '')}`
-    const canonicalURL = `https://diffpal.github.io${route}`
+    const route = `/${page.replace(/index\.md$/, '').replace(/\.md$/, '').replace(/\/$/, '')}`
+    const canonicalURL = `https://diffpal.metalagman.dev${route}`
     const socialTitle = pageData.title
       ? `${pageData.title} | ${siteTitle}`
       : siteTitle
