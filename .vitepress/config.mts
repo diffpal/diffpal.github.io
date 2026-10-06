@@ -53,7 +53,7 @@ export default defineConfig({
   },
   head: [
     ['meta', { property: 'og:site_name', content: 'DiffPal' }],
-    ['link', { rel: 'icon', type: 'image/png', href: '/logo-mark.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/favicon.png' }],
     [
       'script',
       {
@@ -76,7 +76,6 @@ gtag('config', '${googleAnalyticsId}');`
     ['meta', { name: 'twitter:description', content: siteDescription }]
   ],
   themeConfig: {
-    logo: '/logo-mark.png',
     search: {
       provider: 'local'
     },
