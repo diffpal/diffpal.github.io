@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type HeadConfig } from 'vitepress'
 
 const siteTitle = 'DiffPal'
 const siteDescription = 'Open-source AI PR review you control.'
@@ -34,14 +34,25 @@ export default defineConfig({
       ? `${pageData.title} | ${siteTitle}`
       : siteTitle
 
-    return [
+    const head: HeadConfig[] = [
       ['link', { rel: 'canonical', href: canonicalURL }],
       ['meta', { property: 'og:title', content: socialTitle }],
       ['meta', { property: 'og:url', content: canonicalURL }],
       ['meta', { name: 'twitter:title', content: socialTitle }]
     ]
+    if (page === 'index.md') {
+      head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': 'https://diffpal.metalagman.dev/#website',
+        name: 'DiffPal',
+        url: 'https://diffpal.metalagman.dev/'
+      })])
+    }
+    return head
   },
   head: [
+    ['meta', { property: 'og:site_name', content: 'DiffPal' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/logo-mark.png' }],
     [
       'script',
