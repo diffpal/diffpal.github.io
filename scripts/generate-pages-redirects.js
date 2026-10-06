@@ -3,6 +3,8 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+import { legacyRedirects } from './redirects.js'
+
 const origin = 'https://diffpal.metalagman.dev'
 
 async function htmlFiles(directory, prefix = '') {
@@ -24,7 +26,7 @@ export async function generate(dist = join(root, '.vitepress/dist'), output = jo
   await rm(output, { recursive: true, force: true })
   for (const file of files) {
     const path = '/' + file.replace(/index\.html$/, '').replace(/\.html$/, '').replace(/\/$/, '')
-    const target = origin + (file === '404.html' ? '/' : path)
+    const target = origin + (file === '404.html' ? '/' : (legacyRedirects[path] ?? path))
     const scriptTarget = file === '404.html'
       ? `${JSON.stringify(origin)} + location.pathname.replace(/\\.html$/, '')`
       : JSON.stringify(target)

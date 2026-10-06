@@ -10,13 +10,16 @@ test('Pages redirects preserve all built routes, query strings, and fragments', 
   t.after(() => rm(root, { recursive: true, force: true }))
   const dist = join(root, 'dist'), output = join(root, 'redirects')
   await mkdir(join(dist, 'getting-started'), { recursive: true })
-  for (const route of ['index.html', 'docs.html', '404.html', 'getting-started/index.html', 'getting-started/github-quickstart.html']) {
+  for (const route of ['index.html', 'docs.html', '404.html', 'github-quickstart.html', 'getting-started/index.html', 'getting-started/github-quickstart.html']) {
     await writeFile(join(dist, route), '<h1>Old site</h1>')
   }
   await generate(dist, output)
-  for (const [file, route] of [['index.html', '/'], ['docs.html', '/docs'], ['getting-started/index.html', '/getting-started'], ['getting-started/github-quickstart.html', '/getting-started/github-quickstart']]) {
+  for (const [file, route] of [['github-quickstart.html', '/getting-started/github-quickstart'], ['index.html', '/'], ['docs.html', '/docs'], ['getting-started/index.html', '/getting-started'], ['getting-started/github-quickstart.html', '/getting-started/github-quickstart']]) {
     const html = await readFile(join(output, file), 'utf8')
-    assert.ok(html.includes(`https://diffpal.metalagman.dev${route}`))
+    const target = `https://diffpal.metalagman.dev${route}`
+    assert.ok(html.includes(`rel="canonical" href="${target}"`))
+    assert.ok(html.includes(`http-equiv="refresh" content="0; url=${target}"`))
+    assert.ok(html.includes(`<a href="${target}">`))
     assert.ok(html.includes('location.search + location.hash'))
     assert.ok(html.includes('noindex'))
     assert.ok(!html.includes('<h1>Old site</h1>'))
