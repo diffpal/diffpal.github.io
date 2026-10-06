@@ -6,8 +6,8 @@ hero:
   text: Open-source AI pull request review you control.
   tagline: Bring your own agent. Run it in your CI. Publish consistent findings, summaries, and merge gates.
   image:
-    src: /logo.png
-    alt: DiffPal logo
+    src: /diffpal-sticker.png
+    alt: DiffPal mascot sticker
   actions:
     - theme: brand
       text: Get started
